@@ -70,7 +70,6 @@
     - The digits at even indices (0, 2, 4, …) are even digits → {0, 2, 4, 6, 8} → 5 choices
     - The digits at odd indices (1, 3, 5, …) are prime digits → {2, 3, 5, 7} → 4 choices
 1. Return the count of all possible good numbers of length n, modulo 10⁹ + 7.
-- [To Table Of Content](#table-of-content)
 ### Approach
 1. calculate 5<sup>[n/2]</sup> * 4<sup>[n/2]</sup>
 2. Just look out for the everflow of the limit
