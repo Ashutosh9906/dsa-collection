@@ -1,15 +1,37 @@
 # RECURSION 
 
 ## Table Of Content
-- [1. Recursive Implementation of atoi()](#1-recursive-implementation-of-atoi)
-- [2. Pow(x, n)](#2-powx-n)
-- [3. Count Good numbers](#3-count-good-numbers)
-- [4. Sort a stack using recursion](#4-sort-a-stack-using-recursion)
+- [RECURSION](#recursion)
+  - [Table Of Content](#table-of-content)
+  - [1. Recursive Implementation of atoi()](#1-recursive-implementation-of-atoi)
+    - [Problem Statement](#problem-statement)
+    - [Iterative Approach](#iterative-approach)
+    - [Recursive Approach](#recursive-approach)
+  - [2. Pow(x, n)](#2-powx-n)
+    - [Problem Statement](#problem-statement-1)
+    - [Iterative Approach](#iterative-approach-1)
+    - [Recursive Approach](#recursive-approach-1)
+  - [3. Count Good numbers](#3-count-good-numbers)
+    - [Problem Statement](#problem-statement-2)
+  - [4. Sort a stack using recursion](#4-sort-a-stack-using-recursion)
+    - [Problem Statement](#problem-statement-3)
+    - [Iterative Approach](#iterative-approach-2)
+    - [Recursive Approach](#recursive-approach-2)
+  - [5. Reverse a stack using recursion](#5-reverse-a-stack-using-recursion)
+    - [Problem Statement](#problem-statement-4)
+    - [Recursive Approach](#recursive-approach-3)
+  - [6. Generate all binary strings](#6-generate-all-binary-strings)
+    - [Problem Statement](#problem-statement-5)
+    - [Recursive Approach](#recursive-approach-4)
+  - [7. Generate Paranthesis](#7-generate-paranthesis)
+    - [Problem Statement](#problem-statement-6)
+    - [Recursive Approach](#recursive-approach-5)
 
 ## 1. Recursive Implementation of atoi()
 - Link -> https://leetcode.com/problems/string-to-integer-atoi/description/
 - Rating -> 2 ⭐
 - Difficulty -> **HARD**
+- Type -> **Decrease & Conquer**
 ### Problem Statement
 - Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer.
 - **Whitespace**: Ignore any leading whitespace (" ").
@@ -43,6 +65,7 @@
 - Link -> https://leetcode.com/problems/powx-n/description/
 - Rating -> 3 ⭐
 - Difficulty -> **MEDIUM**
+- Type -> **Divide & Conquer**
 ### Problem Statement
 1. mplement pow(x, n), which calculates x raised to the power n (i.e., x<sup>n</sup>).
 2. **X** - can be real Number, **n** - negative, zero or positive
@@ -64,17 +87,18 @@
 - Link -> https://leetcode.com/problems/count-good-numbers/description/
 - Rating -> 2 ⭐
 - Difficulty -> **EASY**
+- Type -> **Divide & Conquer**
 ### Problem Statement
 1. You are given a non-negative integer n
 1. We define a good number of length n such that:
     - The digits at even indices (0, 2, 4, …) are even digits → {0, 2, 4, 6, 8} → 5 choices
     - The digits at odd indices (1, 3, 5, …) are prime digits → {2, 3, 5, 7} → 4 choices
 1. Return the count of all possible good numbers of length n, modulo 10⁹ + 7.
-### Approach
+****### Approach
 1. calculate 5<sup>[n/2]</sup> * 4<sup>[n/2]</sup>
 2. Just look out for the everflow of the limit
 3. same in **Iterative** and **Recursive** approach as just an set of calculation
-4. Complexicity
+2. Complexicity
     - Time -> O(N)
     - Space -> O(1) -> Iterative, O(N) -> Recursive stack space
 - [To Table Of Content](#table-of-content)
@@ -83,13 +107,14 @@
 - Link -> https://www.geeksforgeeks.org/problems/sort-a-stack/1
 - Rating -> 3⭐
 - Difficulty -> **MEDIUM**
+- Type -> **Recursion + Helper Function**
 ### Problem Statement
 1. Sort the stack in ascending order
 1. smallest element at the bottom and largest at the top
 ### Iterative Approach
 1. Pop elements one by one from the original stack.
 2. While the top of tempStack is greater than current element, move elements back to the original stack.
-3. Push the current element into the tempStack.
+1. Push the current element into the tempStack.
 4. Finally, copy back all elements from tempStack to st.
 5. Complexicity
     - Time -> O(n<sup>2</sup>)
@@ -104,4 +129,56 @@
     - Space -> O(n) -> recursive stack space
 - [To Table Of Content](#table-of-content)
 
-## 5. 
+## 5. Reverse a stack using recursion
+- Link -> https://www.geeksforgeeks.org/problems/reverse-a-stack/1
+- Rating -> 3⭐
+- Difficulty -> **MEDIUM**
+- Type -> **Recursion + Helper Function**
+### Problem Statement
+1. Given a stack st[] reverse it from top to bottom
+### Recursive Approach
+1. In the main function we call itself **reverseStack()** until we reach the end of the stack
+2. Every time before we call the function we store the top element in an varable **topElement**
+3. When we reach the end we call **insertAtBottom()** to insert the stored top element in the stack
+4. In the helper function if there are elements empty it along side store the top element 
+5. At the end push the passed element **topElement** push it into into stack also the removed element
+6. Complexicity
+    - Time -> O(n<sup>2</sup>)
+    - Space -> O(n) -> recursive stack space
+- [To Table Of Content](#table-of-content)
+
+## 6. Generate all binary strings
+- Link -> https://www.geeksforgeeks.org/problems/generate-all-binary-strings/1
+- Rating -> 2⭐
+- Difficulty -> **MEDIUM**
+- Type -> **Backtracking**
+### Problem Statement
+1. You need to generate all the binary strings of n characters representing bits.
+2. Return the strings in  ascending order
+### Recursive Approach
+1. Start with an empty string and make recursive call like an **Binary Decision Tree**
+2. Each recusive call deep until it reaches specified size, Print it
+3. Go back after end push another bit '1'/'0' go deep until reach size
+4. Tree Splits until all recusive call are satisfied
+```arduino
+                ""
+            /         \
+          0            1
+        /   \        /    \
+      00    01     10     11
+     / \    / \    / \    / \
+  000 001 010 011 100 101 110 111
+```
+5. Complexicity
+    - Time -> O(n . 2<sup>n</sup>)
+    - Space -> O(n) -> recursive stack space
+- [To Table Of Content](#table-of-content)
+	
+## 7. Generate Paranthesis
+- Link -> https://leetcode.com/problems/generate-parentheses/description/
+- Rating -> 
+- Difficulty -> **MEDIUM**
+- Type -> 
+### Problem Statement
+### Recursive Approach
+- [To Table Of Content](#table-of-content)
