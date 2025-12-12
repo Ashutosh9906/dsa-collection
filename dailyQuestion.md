@@ -4,6 +4,7 @@
 - [Leetcode 3433](#leetcode-3433--count-mentions-per-user-)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
+- **Date** -> 12/12/2025
 - **Link** -> https://leetcode.com/problems/count-mentions-per-user/description/
 - **Rating** -> 2⭐
 - **Difficulty** -> Medium
