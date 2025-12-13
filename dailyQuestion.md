@@ -1,7 +1,12 @@
 # Daily Question Of Leetcode
 
 ## Table Of Content
-- [Leetcode 3433](#leetcode-3433--count-mentions-per-user-)
+- [Daily Question Of Leetcode](#daily-question-of-leetcode)
+  - [Table Of Content](#table-of-content)
+  - [**Leetcode 3433** \[ Count Mentions Per User \]](#leetcode-3433--count-mentions-per-user-)
+    - [Approach](#approach)
+  - [**Leetcode 3606** \[ Coupon Code Validator \]](#leetcode-3606--coupon-code-validator-)
+    - [Approach](#approach-1)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -22,4 +27,29 @@
       - `HERE` -> **+1** for only the users who are online
       - `ALL` -> **+1** for each user rather it be offline
       - `id` -> **+1** only at the mentioned id if online
-6. [Table Of Content](#table-of-content)
+6. Complexicity ( **n = numberOfUsers, m = events.size(), k = average number of tokens in a "MESSAGE" event** )
+   - **Time** -> *O(mlogm)+O(m⋅n)+O(m⋅k⋅n)​*
+   - **Space** -> *O(m⋅n⋅k)​*
+7. [Table Of Content](#table-of-content)
+
+## **Leetcode 3606** [ Coupon Code Validator ]
+- **Date** -> 13/12/2025
+- **Link** -> https://leetcode.com/problems/coupon-code-validator/description/
+- **Rating** -> 4⭐
+- **Difficulty** -> Easy
+### Approach
+1. Loop the Whole code for number of elements in any one of **properties**
+2. Declare seperate variable and store properties `Rcode`, `Rbussiness`, `Ractive`
+3. Go through multiple **if else** statement if any of those case fails **continue**
+   - `Rcode` -> loop through each char check wether it have any inValid char if any **continue**
+   - `Rbussiness` -> If it does not belong to any of provided bussiness **continue**
+   - `Ractive`  -> If it is false **continue**
+4. If all the above cases pass store the answer
+5. Things to taken care of
+   - Sort **Rcode** in the result on the basis of there **Rbussiness**
+   - `set` can be used but it does not allows **duplicates**, but it **sort** the elements on itself
+   - Use alternative `multiset` it allows **duplicates** and also **sort** the elements on it's own
+6. Complexicity ( **n: number of elements, l: length of Rcode** )
+   - **Time** -> *O(n.L + nlogn)*
+   - **Space** -> *O(nlogn)*
+7. [Table Of Content](#table-of-content)
