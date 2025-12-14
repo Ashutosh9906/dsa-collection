@@ -7,6 +7,8 @@
     - [Approach](#approach)
   - [**Leetcode 3606** \[ Coupon Code Validator \]](#leetcode-3606--coupon-code-validator-)
     - [Approach](#approach-1)
+  - [**Leetcode 2147** \[ Number of Ways to Divide a Long Corridor \]](#leetcode-2147--number-of-ways-to-divide-a-long-corridor-)
+    - [Approach](#approach-2)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -52,4 +54,20 @@
 6. Complexicity ( **n: number of elements, l: length of Rcode** )
    - **Time** -> *O(n.L + nlogn)*
    - **Space** -> *O(nlogn)*
+7. [Table Of Content](#table-of-content)
+
+## **Leetcode 2147** [ Number of Ways to Divide a Long Corridor ]
+- **Date** -> 14/12/2025
+- **Link** -> https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> HARD
+### Approach
+1. parse through each char of `corridor`, count the number of **S** if the count is **ODD** return **0**
+2. Parse through each char of `corridor` reach until we come across **2 Seats**
+3. Count the number plants in between the last **2nd seat** and the first **1st seat**
+4. No of ways will be `ways = (ways * (plantCount + 1)) % MOD;` where **MOD = 1e9 + 7**
+5. Make the **palntCount = 0** after calclation
+6. Complexicity
+   - **Time** -> *O(n)*
+   - **Space** -> *O(1)*
 7. [Table Of Content](#table-of-content)
