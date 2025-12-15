@@ -9,6 +9,8 @@
     - [Approach](#approach-1)
   - [**Leetcode 2147** \[ Number of Ways to Divide a Long Corridor \]](#leetcode-2147--number-of-ways-to-divide-a-long-corridor-)
     - [Approach](#approach-2)
+  - [**Leetcode 2110** \[ Number of Smooth Descent Periods of a Stock \]](#leetcode-2110--number-of-smooth-descent-periods-of-a-stock-)
+    - [Approach](#approach-3)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -71,3 +73,18 @@
    - **Time** -> *O(n)*
    - **Space** -> *O(1)*
 7. [Table Of Content](#table-of-content)
+
+## **Leetcode 2110** [ Number of Smooth Descent Periods of a Stock ]
+- **Date** -> 15/12/2025
+- **Link** -> https://leetcode.com/problems/number-of-smooth-descent-periods-of-a-stock/description/
+- **Rating** -> 2⭐
+- **Difficulty** -> MEDIUM
+### Approach
+1. Every single day is a valid descent period so we start with `ans = 1` and `len = 1`
+2. If today's price one less than yesterdays price increement `len`
+3. Else pattern breaks and `len` is reset to **1**
+4. At the end of every iteration add the `len` to the `ans`
+5. Complexicity
+   - Time -> *O(n)*
+   - Space -> *O(1)*
+6. [Table Of Content](#table-of-content)
