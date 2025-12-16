@@ -24,8 +24,13 @@
     - [Problem Statement](#problem-statement-5)
     - [Recursive Approach](#recursive-approach-4)
   - [7. Generate Paranthesis](#7-generate-paranthesis)
-    - [Problem Statement](#problem-statement-6)
     - [Recursive Approach](#recursive-approach-5)
+  - [8. Print all subsequences/Power Set](#8-print-all-subsequencespower-set)
+    - [Recursive Approach](#recursive-approach-6)
+  - [9. Count all subsequences with sum K](#9-count-all-subsequences-with-sum-k)
+    - [Recursive Approach](#recursive-approach-7)
+  - [10. Check if there exists a subsequence with sum K](#10-check-if-there-exists-a-subsequence-with-sum-k)
+    - [Recursive Approach](#recursive-approach-8)
 
 ## 1. Recursive Implementation of atoi()
 - Link -> https://leetcode.com/problems/string-to-integer-atoi/description/
@@ -175,10 +180,76 @@
 - [To Table Of Content](#table-of-content)
 	
 ## 7. Generate Paranthesis
-- Link -> https://leetcode.com/problems/generate-parentheses/description/
-- Rating -> 
-- Difficulty -> **MEDIUM**
-- Type -> 
-### Problem Statement
+- **Link** -> https://leetcode.com/problems/generate-parentheses/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `TREE RECURSION`
 ### Recursive Approach
-- [To Table Of Content](#table-of-content)
+1. What we have to decide is to either take or don't for both `(` and `)`
+2.  We use a recursive function that keeps track of:
+  - `open` → number of '(' used
+  - `close` → number of ')' used
+  - `curr` → current parentheses string
+```bash
+                              ""
+                               |
+                               (
+                               |
+                              "("
+                        /----------------\
+                     "(("                "()"
+                      |                   |
+                    "(("                 "()("
+                /------------\              |
+           "((("            "(()"          "()("
+              |              /   \           |
+           "((()"        "(()("  "(())"     "()("
+              |              |       |        |
+           "((())"        "(()()"   "(())("  "()()"
+              |              |       |        |
+           "((()))"       "(()())"  "(())()" "()()("
+                                               |
+                                            "()()()"
+
+```
+3. Complexity: 
+$
+C_n = \frac{1}{n+1}\binom{2n}{n}$
+  - `Time` -> *O(C<sub>n</sub> * n)*
+  - `Space` -> *O(n)* -> recursive stack space
+4. [To Table Of Content](#table-of-content)
+
+## 8. Print all subsequences/Power Set
+- **Link** -> https://leetcode.com/problems/subsets/submissions/1856852108/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `TREE RECURSION`
+### Recursive Approach
+1. Same as above but the tree will extend in both way aslo comparable to `6. Generate all binary string`
+1. Complexity: 
+  - `Time`: *O(2<sup>n</sup> * n)*
+  - `Space`: *O(n)* -> recursive stack space
+3. [To Table Of Content](#table-of-content)
+
+## 9. Count all subsequences with sum K
+- **Link** -> https://leetcode.com/problems/number-of-subsequences-that-satisfy-the-given-sum-condition/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `TREE RECURSION`
+### Recursive Approach
+1. Same as above problems in terms of calls and creating tree
+2. The change is insted of plain call return `1` and `0` based on the condition and add them up
+3. In terms of time complexity and space complexity is the same is above
+4. [To Table Of Content](#table-of-content)
+
+## 10. Check if there exists a subsequence with sum K
+- **Link** -> https://www.geeksforgeeks.org/problems/check-if-there-exists-a-subsequence-with-sum-k/1
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `TREE RECURSION`
+### Recursive Approach
+1. Same as above problems in terms of calls and creating tree
+2. The change is insted of plain call return `true` and `false` based on the condition
+3. If you caught an **true** just skip all the remaining further calls and return **true**
+4. In terms of time complexity and space complexity is the same is above
+5. [To Table Of Content](#table-of-content)
