@@ -31,6 +31,10 @@
     - [Recursive Approach](#recursive-approach-7)
   - [10. Check if there exists a subsequence with sum K](#10-check-if-there-exists-a-subsequence-with-sum-k)
     - [Recursive Approach](#recursive-approach-8)
+  - [11. Combination Sum I](#11-combination-sum-i)
+    - [Recursive Approach](#recursive-approach-9)
+  - [12. Combination Sum II](#12-combination-sum-ii)
+    - [Recursive Approach](#recursive-approach-10)
 
 ## 1. Recursive Implementation of atoi()
 - Link -> https://leetcode.com/problems/string-to-integer-atoi/description/
@@ -253,3 +257,30 @@ C_n = \frac{1}{n+1}\binom{2n}{n}$
 3. If you caught an **true** just skip all the remaining further calls and return **true**
 4. In terms of time complexity and space complexity is the same is above
 5. [To Table Of Content](#table-of-content)
+
+## 11. Combination Sum I
+- **Link** -> https://leetcode.com/problems/combination-sum/submissions/1858629700/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `TREE RECURSION`
+### Recursive Approach
+1. Same as the other above example with an bit change
+2. We will be adding the same num until it reahes or exceeds the target
+2. After which we will pop_back and increement the pos and move further
+3. Complexicity
+  - `Time` -> *O(2<sup>t</sup> * k)*
+  - `Space` -> *Unpridictable*
+1. [To Table Of Content](#table-of-content)
+
+## 12. Combination Sum II
+- **Link** -> https://leetcode.com/problems/combination-sum-ii/submissions/1858686534/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `Backtracking (Depth-First Search) Recursion`
+### Recursive Approach
+1. Treee Diagram of the Approach
+![Tree Diagram](images/image.png)
+2. The calls are same as like the `Comnbination I` small changes to avoid duplicates 
+3. complexity: *k: average length of each combination, x: average combinations*
+  - `Time` -> *O(2<sup>n</sup> * k)*
+  - `Space` -> *O(k * x)* -> Ingnoring the recursive stack space
