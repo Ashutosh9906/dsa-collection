@@ -35,6 +35,12 @@
     - [Recursive Approach](#recursive-approach-9)
   - [12. Combination Sum II](#12-combination-sum-ii)
     - [Recursive Approach](#recursive-approach-10)
+  - [13. Subset Sum-I](#13-subset-sum-i)
+    - [Recursive Approach](#recursive-approach-11)
+  - [14 Subset Sum-II](#14-subset-sum-ii)
+    - [Recursive Approach](#recursive-approach-12)
+  - [12. Combination Sum III](#12-combination-sum-iii)
+    - [Recursive Approach](#recursive-approach-13)
 
 ## 1. Recursive Implementation of atoi()
 - Link -> https://leetcode.com/problems/string-to-integer-atoi/description/
@@ -280,7 +286,48 @@ C_n = \frac{1}{n+1}\binom{2n}{n}$
 ### Recursive Approach
 1. Treee Diagram of the Approach
 ![Tree Diagram](images/image.png)
-2. The calls are same as like the `Comnbination I` small changes to avoid duplicates 
-3. complexity: *k: average length of each combination, x: average combinations*
+1. The calls are same as like the `Comnbination I` small changes to avoid duplicates 
+2. complexity: *k: average length of each combination, x: average combinations*
   - `Time` -> *O(2<sup>n</sup> * k)*
   - `Space` -> *O(k * x)* -> Ingnoring the recursive stack space
+3. [To Table Of Content](#table-of-content)
+
+## 13. Subset Sum-I
+- **Link** -> https://www.geeksforgeeks.org/problems/subset-sums2234/1
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `TREE RECURSION`
+### Recursive Approach
+1. Same as like question `11. Combination Sum I`
+2. Just small differnce of addition and consdtion to satisyf the answer
+3. Complexity: 
+  - `Time` -> *O(2<sup>n</sup>)*
+  - `Space` -> *O(n)* -> recusive call
+4. [To Table Of Content](#table-of-content)
+
+## 14 Subset Sum-II
+- **Link** -> https://leetcode.com/problems/subsets-ii/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `Backtracking (Depth-First Search) Recursion`
+### Recursive Approach
+1. Same as like question `12. Combination Sum II`
+2. Make changes in code of above question same as like question **12.**
+3. Complexity:
+  - `Time` -> *O(n.logn * n*2<sup>n</sup>)*
+    - **2<sup>n</sup>** -> total subset
+    - **n** -> each subset, copying it into ans
+    - **nlogn** -> sorting the array
+  - `Space` -> O(n) -> recursive stack space
+4. [To Table Of Content](#table-of-content)
+
+## 12. Combination Sum III
+- **Link** -> https://leetcode.com/problems/combination-sum-iii/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+- **Type** -> `TREE RECURSION`
+### Recursive Approach
+1. Same as like `Combination I` in terms of recusive call and base case
+2. The differnce ther is no array provided, we have to dynammically take it from **1 - 9**
+3. Complexity same as like question `13. Subset sum-I`
+4. [To Table Of Content](#table-of-content)
