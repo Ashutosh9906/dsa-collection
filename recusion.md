@@ -41,6 +41,8 @@
     - [Recursive Approach](#recursive-approach-12)
   - [12. Combination Sum III](#12-combination-sum-iii)
     - [Recursive Approach](#recursive-approach-13)
+  - [13. Letter Combinations of a Phone number](#13-letter-combinations-of-a-phone-number)
+    - [Recursive Approach](#recursive-approach-14)
 
 ## 1. Recursive Implementation of atoi()
 - Link -> https://leetcode.com/problems/string-to-integer-atoi/description/
@@ -300,10 +302,10 @@ C_n = \frac{1}{n+1}\binom{2n}{n}$
 ### Recursive Approach
 1. Same as like question `11. Combination Sum I`
 2. Just small differnce of addition and consdtion to satisyf the answer
-3. Complexity: 
+1. Complexity: 
   - `Time` -> *O(2<sup>n</sup>)*
   - `Space` -> *O(n)* -> recusive call
-4. [To Table Of Content](#table-of-content)
+2. [To Table Of Content](#table-of-content)
 
 ## 14 Subset Sum-II
 - **Link** -> https://leetcode.com/problems/subsets-ii/description/
@@ -313,13 +315,13 @@ C_n = \frac{1}{n+1}\binom{2n}{n}$
 ### Recursive Approach
 1. Same as like question `12. Combination Sum II`
 2. Make changes in code of above question same as like question **12.**
-3. Complexity:
+1. Complexity:
   - `Time` -> *O(n.logn * n*2<sup>n</sup>)*
     - **2<sup>n</sup>** -> total subset
     - **n** -> each subset, copying it into ans
     - **nlogn** -> sorting the array
   - `Space` -> O(n) -> recursive stack space
-4. [To Table Of Content](#table-of-content)
+2. [To Table Of Content](#table-of-content)
 
 ## 12. Combination Sum III
 - **Link** -> https://leetcode.com/problems/combination-sum-iii/description/
@@ -329,5 +331,20 @@ C_n = \frac{1}{n+1}\binom{2n}{n}$
 ### Recursive Approach
 1. Same as like `Combination I` in terms of recusive call and base case
 2. The differnce ther is no array provided, we have to dynammically take it from **1 - 9**
-3. Complexity same as like question `13. Subset sum-I`
+1. Complexity same as like question `13. Subset sum-I`
 4. [To Table Of Content](#table-of-content)
+
+## 13. Letter Combinations of a Phone number
+- **Link** -> https://leetcode.com/problems/letter-combinations-of-a-phone-number/submissions/1859525883/
+- **Rating** -> 2⭐
+- **Difficulty** -> HARD
+- **Type** -> `MULTIPLE / TREE RECURSION`
+### Recursive Approach
+1. Generate an vector for mapping which would include all the char bunched as per the dial pad
+2. The is similar like the `7. Generate Parenthesis` but a level higher in difficulty
+3. We make multiple call inside an for loop with the same technique of take or not take
+![Tree Diagram](images/13Image.png)
+4. Complexity:
+  - `Time` -> *O(4<sup>n</sup>)*
+  - `Space` -> *O(n)* -> recursive stack space -> O(n * 4<sup>n</sup>) -> result storage
+5. [To Table Of Content](#table-of-content)
