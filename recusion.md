@@ -43,6 +43,8 @@
     - [Recursive Approach](#recursive-approach-13)
   - [13. Letter Combinations of a Phone number](#13-letter-combinations-of-a-phone-number)
     - [Recursive Approach](#recursive-approach-14)
+  - [14. Palindrome Partitioning](#14-palindrome-partitioning)
+    - [Recursive Approach](#recursive-approach-15)
 
 ## 1. Recursive Implementation of atoi()
 - Link -> https://leetcode.com/problems/string-to-integer-atoi/description/
@@ -348,3 +350,17 @@ C_n = \frac{1}{n+1}\binom{2n}{n}$
   - `Time` -> *O(4<sup>n</sup>)*
   - `Space` -> *O(n)* -> recursive stack space -> O(n * 4<sup>n</sup>) -> result storage
 5. [To Table Of Content](#table-of-content)
+
+## 14. Palindrome Partitioning
+- **Link** -> https://leetcode.com/problems/palindrome-partitioning/
+- **Rating** -> 2⭐
+- **Difficulty** -> HARD
+- **Type** -> `Backtracking + Depth-First Search (DFS)`
+### Recursive Approach
+1. We loop through char or set of charachter to find out wheteher it is palindrome or not and move further
+![Tree Diagram](images/14Image.png)
+2. Complexity: 
+  - `Time` -> *O(2<sup>n</sup> * n)*
+  - `Space` -> *O(n)* -> recursive stack space
+3. [To Table Of Content](#table-of-content)
+
