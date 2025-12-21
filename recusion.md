@@ -48,7 +48,7 @@
 
 ## 1. Recursive Implementation of atoi()
 - Link -> https://leetcode.com/problems/string-to-integer-atoi/description/
-- Rating -> 2 ⭐
+- Rating -> 2⭐
 - Difficulty -> **HARD**
 - Type -> **Decrease & Conquer**
 ### Problem Statement
