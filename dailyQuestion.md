@@ -11,6 +11,8 @@
     - [Approach](#approach-2)
   - [**Leetcode 2110** \[ Number of Smooth Descent Periods of a Stock \]](#leetcode-2110--number-of-smooth-descent-periods-of-a-stock-)
     - [Approach](#approach-3)
+  - [**Leetcode 955** \[Delete Columns to Make Sorted I\]](#leetcode-955-delete-columns-to-make-sorted-i)
+  - [**Leetcode 955** \[Delete Columns to Make Sorted II\]](#leetcode-955-delete-columns-to-make-sorted-ii)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -81,10 +83,22 @@
 - **Difficulty** -> MEDIUM
 ### Approach
 1. Every single day is a valid descent period so we start with `ans = 1` and `len = 1`
-2. If today's price one less than yesterdays price increement `len`
+1. If today's price one less than yesterdays price increement `len`
 3. Else pattern breaks and `len` is reset to **1**
 4. At the end of every iteration add the `len` to the `ans`
 5. Complexicity
    - Time -> *O(n)*
    - Space -> *O(1)*
 6. [Table Of Content](#table-of-content)
+
+## **Leetcode 955** [Delete Columns to Make Sorted I]
+- **Date** -> 20/12/2025
+- **Link** -> https://leetcode.com/problems/delete-columns-to-make-sorted/description/
+- **Rating** -> 4⭐
+- **Difficulty** -> Easy
+- 
+## **Leetcode 955** [Delete Columns to Make Sorted II]
+- **Date** -> 21/12/2025
+- **Link** -> https://leetcode.com/problems/delete-columns-to-make-sorted-ii/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
