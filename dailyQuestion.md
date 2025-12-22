@@ -13,6 +13,7 @@
     - [Approach](#approach-3)
   - [**Leetcode 955** \[Delete Columns to Make Sorted I\]](#leetcode-955-delete-columns-to-make-sorted-i)
   - [**Leetcode 955** \[Delete Columns to Make Sorted II\]](#leetcode-955-delete-columns-to-make-sorted-ii)
+  - [**Leetcode 960**](#leetcode-960)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -102,3 +103,12 @@
 - **Link** -> https://leetcode.com/problems/delete-columns-to-make-sorted-ii/description/
 - **Rating** -> 3⭐
 - **Difficulty** -> MEDIUM
+
+## **Leetcode 960**
+- **Date** -> 22/12/2025
+- **Link** -> https://leetcode.com/problems/delete-columns-to-make-sorted-iii/description/
+- **Rating** -> 1⭐
+- **Difficulty** -> HARD
+![Intution](images/daily22-12-1.png)
+![Approach](images/daily22-12-2.png)
+
