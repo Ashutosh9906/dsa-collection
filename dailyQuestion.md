@@ -13,7 +13,9 @@
     - [Approach](#approach-3)
   - [**Leetcode 955** \[Delete Columns to Make Sorted I\]](#leetcode-955-delete-columns-to-make-sorted-i)
   - [**Leetcode 955** \[Delete Columns to Make Sorted II\]](#leetcode-955-delete-columns-to-make-sorted-ii)
-  - [**Leetcode 960**](#leetcode-960)
+  - [**Leetcode 960** \[Delete Columns to Make Sorted III\]](#leetcode-960-delete-columns-to-make-sorted-iii)
+  - [**Leetcode 2054** \[Two Best Non-Overlapping Events\]](#leetcode-2054-two-best-non-overlapping-events)
+    - [Approach](#approach-4)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -97,18 +99,39 @@
 - **Link** -> https://leetcode.com/problems/delete-columns-to-make-sorted/description/
 - **Rating** -> 4⭐
 - **Difficulty** -> Easy
-- 
+- [Table Of Content](#table-of-content)
+ 
 ## **Leetcode 955** [Delete Columns to Make Sorted II]
 - **Date** -> 21/12/2025
 - **Link** -> https://leetcode.com/problems/delete-columns-to-make-sorted-ii/description/
 - **Rating** -> 3⭐
 - **Difficulty** -> MEDIUM
+- [Table Of Content](#table-of-content)
 
-## **Leetcode 960**
+## **Leetcode 960** [Delete Columns to Make Sorted III]
 - **Date** -> 22/12/2025
 - **Link** -> https://leetcode.com/problems/delete-columns-to-make-sorted-iii/description/
 - **Rating** -> 1⭐
 - **Difficulty** -> HARD
 ![Intution](images/daily22-12-1.png)
 ![Approach](images/daily22-12-2.png)
+- [Table Of Content](#table-of-content)
+
+## **Leetcode 2054** [Two Best Non-Overlapping Events]
+- **Date** -> 23/12/2025
+- **Link** -> https://leetcode.com/problems/two-best-non-overlapping-events/description/
+- **Rating** -> 2⭐
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will sort the jobs by it's starting time 
+2. We will start throught each job, with help of binary search we will find the first non-overlappng job
+3. We will also generate an maxSuffix array containing the max values upto that location
+4. Resulting we can get the max value beyond that job, as the job are sorted all the job after the job we found through BS is valid
+5. We will return the max of all the combinations
+6. Complexity
+   - `Time` -> *O(nlogn)*
+   - `Space` -> *O(n)*
+7. [Table Of Content](#table-of-content)
+
+
 
