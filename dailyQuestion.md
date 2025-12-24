@@ -16,6 +16,8 @@
   - [**Leetcode 960** \[Delete Columns to Make Sorted III\]](#leetcode-960-delete-columns-to-make-sorted-iii)
   - [**Leetcode 2054** \[Two Best Non-Overlapping Events\]](#leetcode-2054-two-best-non-overlapping-events)
     - [Approach](#approach-4)
+  - [**Leetcode 3074** \[Apple Redistribution into Boxes\]](#leetcode-3074-apple-redistribution-into-boxes)
+    - [Approach](#approach-5)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -133,5 +135,16 @@
    - `Space` -> *O(n)*
 7. [Table Of Content](#table-of-content)
 
-
-
+## **Leetcode 3074** [Apple Redistribution into Boxes]
+- **Date** -> 24/12/2025
+- **Link** -> https://leetcode.com/problems/apple-redistribution-into-boxes/description/
+- **Rating** -> 4⭐
+- **Difficulty** -> EASY
+### Approach
+1. Count the total numbers of apples to be put into the boxes
+2. Sort the `capacity` array, decrease the capacity of each box from the total of apples
+3. Maintian the counter how much boxes we use
+4. Complexity:
+   - `Time` -> *O(n + mlogm)*
+   - `Space` -> *O(1)*
+5. [Table Of Content](#table-of-content) 
