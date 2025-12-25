@@ -15,6 +15,16 @@
     - [Approach](#approach-4)
   - [6. Find the two numbers appearing odd number of times](#6-find-the-two-numbers-appearing-odd-number-of-times)
     - [Approach](#approach-5)
+  - [7. Prime Factors](#7-prime-factors)
+    - [Approach](#approach-6)
+  - [8. All Divisors of a Number](#8-all-divisors-of-a-number)
+    - [Approach](#approach-7)
+  - [9. Sieve of Eratosthenes \[ New Algorithm VIMP \]](#9-sieve-of-eratosthenes--new-algorithm-vimp-)
+    - [Algorithm](#algorithm)
+  - [10. Find Prime Factorisation of a Number using Sieve](#10-find-prime-factorisation-of-a-number-using-sieve)
+    - [Approach](#approach-8)
+  - [11. Power(n, x)](#11-powern-x)
+    - [Approach](#approach-9)
 
 ## 1. Divide two integers without using multiplication, division and mod operator
 - **Link** -> https://leetcode.com/problems/divide-two-integers/submissions/1861400382/
@@ -105,3 +115,88 @@
   - `Time` -> *O(2N)*
   - `Space` -> *O(1)*
 9. [To Table Of Content](#table-of-content)
+
+## 7. Prime Factors
+- **Link** -> https://www.geeksforgeeks.org/problems/prime-factors5052/1
+- **Rating** -> 2⭐
+- **Medium** -> HARD
+### Approach
+![Approach Logic](images/bit_manipulation_7.png)
+1. Above is the basic logic and pseudo code for obtaining the prime factors of an given elements
+2. But there is one flaw of this code if the number is self is prime number like 13, 37 the loop will process of *O(n)* complexity
+3. What we can do is like use **i<=√n** which will give same as before but it will not give the prime number is self
+4. To overcome it we can do **if(n != 1) ans.push_back(n);**
+5. Complexity:
+  - `TIme` -> *O(√n * logn)*
+  - `Space` -> *O( )* -> can't be predicted
+6. [To Table Of Content](#table-of-content)
+
+## 8. All Divisors of a Number
+- **Link** -> https://www.geeksforgeeks.org/problems/all-divisors-of-a-number/1
+- **Rating** -> 3⭐
+- **Difficulty** -> EASY
+### Approach
+1. The extreme naive solution could be we can iterate form i -> n if the number perfectly divide n add to ans 
+2. We can optimise it using the table
+
+| Factor A | 1 | 2 | 3 | 4 | 6 | 9 | 12 | 18 | 36 |
+|----------|---|---|---|---|---|---|----|----|----|
+| **Factor B** | **36** | **18** | **12** | **9** | **6** | **4** | **3** | **2** | **1** |
+3. As we can see in the table from both the side until 6 ( which is sqrt of 36 ) we each number insted of taking all the nunmber from one side
+4. we will take the i and also n/i if it is not similar to i
+5. Complexity:
+  - `Time` -> *O(√n)*
+  - `Space` -> *O(1)*
+6. [To Table Of Content](#table-of-content)
+
+## 9. Sieve of Eratosthenes [ New Algorithm VIMP ]
+- **Link** -> https://leetcode.com/problems/count-primes/description/
+- **Rating** -> 2⭐
+- **Difficulty** -> HARD
+### Algorithm
+![Algorithm Visuals](images/bit-manipulation-9.png)
+1. What is am prime number the number with only two divisors 1 and itself
+2. We will create an array until n+1 and mark each pos as 1
+3. We will iterate from 2 -> n+1 and mark 0 to the multiple of the pos we are at which
+4. ex. at pos: 2 we will mark 4, 6, 8, 10,... 
+5. The pos with value 1 are prime numbers
+6. To optimize it we can observe the tables below in the image 
+7. For all the multiples of 2 * 3, 2 * 4, 2 * 5, so for multiple of 3 -> 3 * 2, 3 * 3
+8. We don't need to perform 3 * 2 which is already covered in multiple of 2 -> 2 * 3
+9. So for the inner loop we will start from j=i*i insted of just i
+10. As we are performing i*i no need to iterate i form 2 -> n we only need to iterate till √n
+11. If n is 30 and i = 6 the inner loop j = i*i -> 36 will never work so we only nedd to iterate till √30 -> 5.3
+12. Complexity:
+  - `Time` -> *O(n)* for allocation of 1 to each pos in an array, *O(nlog(logn))* no proof mathematically derived time complexity
+  - `Space` -> *O(n)*
+13. [To Table Of Content](#table-of-content)
+	
+## 10. Find Prime Factorisation of a Number using Sieve
+- **Link** -> https://www.geeksforgeeks.org/problems/prime-factorization-using-sieve/1
+- **Rating** -> 4⭐
+- **Difficulty** -> HARD
+### Approach
+1. For this question we can use the 7. Prime Factors just change the position of adding to ans
+2. TO optimize it we can use 9. Sieve of Eratosthenes Algorithm
+3. It will return the smallest divisor of the number is *O(1)* complexity
+4. Just a small change in it like insted of 1 at each palce will place the pos itself
+5. While iterating replace it with the number it is been divided
+6. If at any place there is conflict that the pos is already divided one by one of prime number don't change it
+7. Complexity:
+  - `Time` -> *O(log<sub>2</sub>n) + O(nlog(logn))*
+  - `Space` -> *O(n)*
+8. [To Table Of Content](#table-of-content)
+
+## 11. Power(n, x)
+- **Link** -> https://leetcode.com/problems/powx-n/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> EASY
+### Approach
+1. We can iterate through 1 -> n and multiply to iteself for each iteration 
+2. To optimize it we do like if n is 2<sup>30</sup> -> (2<sup>2</sup>)<sup>15</sup> -> (4)<sup>15</sup>
+3. For each iteration we can reduce it by half if the number is even
+4. If the number is oddd we can reduce it by one and multiply the answer it by once
+5. Complexity:
+  - `Time` -> *O(logn)*
+  - `Space` -> *O(1)*
+6. [To Table Of Content](#table-of-content)
