@@ -18,6 +18,8 @@
     - [Approach](#approach-4)
   - [**Leetcode 3074** \[Apple Redistribution into Boxes\]](#leetcode-3074-apple-redistribution-into-boxes)
     - [Approach](#approach-5)
+  - [**Leetcode 3075** \[Maximize Happiness of Selected Children\]](#leetcode-3075-maximize-happiness-of-selected-children)
+    - [Approach](#approach-6)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -148,3 +150,18 @@
    - `Time` -> *O(n + mlogm)*
    - `Space` -> *O(1)*
 5. [Table Of Content](#table-of-content) 
+
+## **Leetcode 3075** [Maximize Happiness of Selected Children]
+- **Date** -> 25/12/2025
+- **Link** -> https://leetcode.com/problems/maximize-happiness-of-selected-children/description/
+- **Rating** -> 4⭐
+- **Difficulty** -> MEDIUM
+### Approach
+1. As we want maximum happiness and answer does not depend on the sewuence we sort the `happiness` vector
+2. Inside an for loop we will start from the last element and add it to answer while also counting the number of rounds has been processed
+3. Each time we will maintian an counter for nunmber of rounds has been completed and reduce it each time while adding happiness to answer
+4. The pos we get the **happiness[i] - rounds** as 0 we will stop ( happiness can't be negative ) return the ans;
+5. Complexity:
+   - `TIme` -> *O(nlogn)*
+   - `Space` -> *O(1)*
+6. [Table Of Content](#table-of-content) 
