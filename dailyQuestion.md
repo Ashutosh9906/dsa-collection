@@ -20,6 +20,8 @@
     - [Approach](#approach-5)
   - [**Leetcode 3075** \[Maximize Happiness of Selected Children\]](#leetcode-3075-maximize-happiness-of-selected-children)
     - [Approach](#approach-6)
+  - [**Leetcode 2483** \[Minimum Penalty for a Shop\]](#leetcode-2483-minimum-penalty-for-a-shop)
+    - [Approach](#approach-7)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -163,5 +165,20 @@
 4. The pos we get the **happiness[i] - rounds** as 0 we will stop ( happiness can't be negative ) return the ans;
 5. Complexity:
    - `TIme` -> *O(nlogn)*
+   - `Space` -> *O(1)*
+6. [Table Of Content](#table-of-content) 
+
+## **Leetcode 2483** [Minimum Penalty for a Shop]
+- **Date** -> 26/12/2025
+- **Link** -> https://leetcode.com/problems/minimum-penalty-for-a-shop/description/
+- **Rating** -> 3⭐
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will calculate the penalty for closing the store at 0
+2. We will iterate through a for loop for further closig the store ahead from 0 1 -> n
+3. Each time if `'Y'` occurs reduce the panlty or `'N'` increase the penalty
+4. At the end of each penalty check for minPenalty and update the answer
+5. Complexity:
+   - `Time` -> *O(n)*
    - `Space` -> *O(1)*
 6. [Table Of Content](#table-of-content) 
