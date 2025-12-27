@@ -22,6 +22,8 @@
     - [Approach](#approach-6)
   - [**Leetcode 2483** \[Minimum Penalty for a Shop\]](#leetcode-2483-minimum-penalty-for-a-shop)
     - [Approach](#approach-7)
+  - [**Leetcode 2402** \[Meeting Rooms III\] 1⭐](#leetcode-2402-meeting-rooms-iii-1)
+    - [Approach](#approach-8)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -182,3 +184,14 @@
    - `Time` -> *O(n)*
    - `Space` -> *O(1)*
 6. [Table Of Content](#table-of-content) 
+
+## **Leetcode 2402** [Meeting Rooms III] 1⭐
+- **Date** -> 27/12/2025
+- **Link** -> https://leetcode.com/problems/meeting-rooms-iii/description/
+- **Difficulty** -> HARD
+### Approach
+![intuition and approach](images/daily27-12.png)
+1. Complexity:
+   - `Time` -> *O(mlogn)*
+   - `Space` -> *O(n)*
+2. [Table Of Content](#table-of-content) 
