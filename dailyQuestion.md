@@ -24,6 +24,8 @@
     - [Approach](#approach-7)
   - [**Leetcode 2402** \[Meeting Rooms III\] 1⭐](#leetcode-2402-meeting-rooms-iii-1)
     - [Approach](#approach-8)
+  - [**Leetcode 1351** \[Count Negative Numbers in a Sorted Matrix\] 4⭐](#leetcode-1351-count-negative-numbers-in-a-sorted-matrix-4)
+    - [Approach](#approach-9)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -195,3 +197,18 @@
    - `Time` -> *O(mlogn)*
    - `Space` -> *O(n)*
 2. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1351** [Count Negative Numbers in a Sorted Matrix] 4⭐
+- **Date** -> 28/12/2025
+- **Link** -> https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/description/
+- **Difficulty** -> EASY
+### Approach
+1. Iterate an for loop from 1 -> n (size of 2D array)
+2. As the sub arrays are sorted we can use binary search to find the first -ve element and calculate
+3. For bit bit optimization if the first element itself is negative no need for binary search direct add the size
+4. Manage as pos variable to keep track last negative element and make it 0 at start
+5. If the pos is not changed from 0 then there is no negative number in the array add m(size of subArray) - pos to ans
+6. Complexity:
+   - `Time` -> *O(nlogm)*
+   - `Space` -> *O(1)*
+7. [Table Of Content](#table-of-content) 
