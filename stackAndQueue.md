@@ -12,6 +12,18 @@
     - [Approach](#approach-1)
   - [4. Min Stack 2⭐](#4-min-stack-2)
     - [Approach](#approach-2)
+  - [5. Infix to Postfix Conversion 4⭐](#5-infix-to-postfix-conversion-4)
+    - [Approach](#approach-3)
+  - [6. Infix To Prefix Conversion 4⭐](#6-infix-to-prefix-conversion-4)
+    - [Approach](#approach-4)
+  - [7. Postfix to Infix Conversion 4⭐](#7-postfix-to-infix-conversion-4)
+    - [Approach](#approach-5)
+  - [8. Prefix to Infix Conversion 3⭐](#8-prefix-to-infix-conversion-3)
+    - [Approach](#approach-6)
+  - [9. Postfix to Prefix Conversion 3⭐](#9-postfix-to-prefix-conversion-3)
+    - [Approach](#approach-7)
+  - [10. Prefix to Postfix Conversion 3⭐](#10-prefix-to-postfix-conversion-3)
+    - [Approach](#approach-8)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -85,3 +97,82 @@
      - `Time` -> *O(1)*: `push()`, `pop()`, `top()`, `minVal()`
      - `Space` -> *O(n)* -> stack size
 9. [To Table Of Content](#table-of-content)
+
+## 5. Infix to Postfix Conversion 4⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/infix-to-postfix-1587115620/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. We iterate througn each char of the string, maintain and ans string and stack st
+2. If the char is operand add it to string
+3. If the char is oppening bracket push it into stack
+4. If the char is closing bracket add the st.top() to answer and pop, don't miss to pop the openning bracket at the last
+5. Else it is operator check it's priority with st.top() cond: **((precision(c) < precision(st.top()) || (precision(c) == precision(st.top()) && c != '^')))** if true add st.top() to ans and pop after the end of for loop push the operator into the stack
+6. After complete iteration of the for loop add st.top() to the answer until stack is empty return ans
+7. Complexity:
+     - `TIme` -> *O(n): outer loop + O(n): inner while loops*
+     - `Space` -> *O(n)*: stack space
+8. [To Table Of Content](#table-of-content)
+
+## 6. Infix To Prefix Conversion 4⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/infix-to-prefix-notation/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. Reverse the provided expression 
+2. The further code is just same is infixToPostfix() expression each and every step just an small change of condition is else part
+3. If the operator is `^` and the st.top() is ^ as well pop it and add the stack, there cant be two ^ in stack
+4. Else use the condition: **precision(c) < precision(st.top()) **, point to be noted only less than
+5. At end reverse the ans once to get the required prefix expression
+6. Complexity:
+     - `TIme` -> *O(n): outer loop + O(n): inner while loops + O(2n): reverse the string*
+     - `Space` -> *O(n)*: stack space
+7. [To Table Of Content](#table-of-content)
+
+## 7. Postfix to Infix Conversion 4⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/postfix-to-infix-conversion/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. We iterate through an for loop for each charchter and maintain an stck st
+2. If the char is operand push it into the stack
+3. If the char id operator pop the top1 an top2 from the stack add them in an temp string like `"(" + t2 + c + t1 + ")"`(here c is the operator) and push the string into the stack
+4. Point to mention declare the stack as an collection of string and while push single char into the stack push it like `st.push(string(1, c))`
+5. At the end return the st.top() as the answer
+6. Complexity:
+     - `Time` -> *O(n): outer loop + O(n): may need to add string of size n*
+     - `Space` -> *O(n)*: stack space
+7. [To Table Of Content](#table-of-content)
+
+## 8. Prefix to Infix Conversion 3⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/prefix-to-infix-conversion/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. Same as we do for postficToInfix just chage in formula while adding the string use `"(" + t1 + exp[i] + t2 + ")"`
+2. Other then that whole process is same return st.top() as the answer
+3. Complexity:
+     - `Time` -> *O(n): outer loop + O(n): may need to add string of size n*
+     - `Space` -> *O(n)*: stack space
+4. [To Table Of Content](#table-of-content)
+
+## 9. Postfix to Prefix Conversion 3⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/postfix-to-prefix-conversion/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will iterate through whole expression and maintain an stack st
+2. If the char is operand push it into the stack
+3. Else pop the top1 and top2 elements of the stack add them like `c + t2 + t1`(c is the operator) push it into the stack
+4. Take same precautiosn while pushing single char into the stack using `st.push(string(1, c))`, return st.top() as answer
+5. Complexity:
+     - `Time` -> *O(n): outer loop + O(n): may need to add string of size n*
+     - `Space` -> *O(n)*: stack space
+6. [To Table Of Content](#table-of-content)
+
+## 10. Prefix to Postfix Conversion 3⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/prefix-to-postfix-conversion/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. Just same process as we seen in conversion of postfixToPrefix just with an simple change in adding string
+3. To add the top1 and top2 use `t1 + t2 + exp[i]`
+3. Take precautions while adding single char, retuen st.top() as answer
+4. Complexity:
+     - `Time` -> *O(n): outer loop + O(n): may need to add string of size n*
+     - `Space` -> *O(n)*: stack space
+5. [To Table Of Content](#table-of-content)
