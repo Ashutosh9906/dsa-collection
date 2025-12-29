@@ -235,3 +235,5 @@
        - `Time` -> *O(k<sup>n</sup>)*
        - `Space` -> *O(k<sup>n</sup>)*: bad string if the base itslef fails + *O(n)*: recursive stack space + *O(A)*: storing mp for allowed pyramid
 7. [Table Of Content](#table-of-content) 
+
+![LeetCode Stats](https://leetcard.jacoblin.cool/Ashutosh4069?theme=dark)
