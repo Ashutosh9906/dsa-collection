@@ -24,6 +24,8 @@
     - [Approach](#approach-7)
   - [10. Prefix to Postfix Conversion 3⭐](#10-prefix-to-postfix-conversion-3)
     - [Approach](#approach-8)
+  - [11. Next Greater Element 3⭐](#11-next-greater-element-3)
+    - [Approach](#approach-9)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -176,3 +178,19 @@
      - `Time` -> *O(n): outer loop + O(n): may need to add string of size n*
      - `Space` -> *O(n)*: stack space
 5. [To Table Of Content](#table-of-content)
+
+## 11. Next Greater Element 3⭐
+- **Link** -> https://leetcode.com/problems/next-greater-element-i/submissions/1868363525/
+- **Difficulty** -> MEDIUM
+### Approach
+1. Here we are using `Monotonic Stack` all the elements we add into the stack are in specific array
+2. We use unordered_map `mp` to map the next gretest element and vector `nge` to store the ans fot the subarray
+3. We start from the last, at the very start of loop we remove all the element from stack who are smaller or equal to the current element
+4. If the stack is empty at the the nums2[i]th pos into the mp we insert -1, else we insert the st.top()
+5. At the end of iteration we push the current element into the stack
+6. As in the very start we remove the all the smaller element than the current num to maintain the decreasing sequence of numbers which is `Monotonix Stack`
+7. In the another for loop we iterate from 0 -> m-1 and push the nge[i] = mp[nums1[i]], leading to required ans
+8. Complexity:
+     - `Time` -> *O(2n)*: to generate the mp + *O(m)*: to push the nge into the ans
+     - `Space` -> *O(n)*: to store mp + *O(n)*: stack space + *O(n)*: to store the answer
+9. [To Table of Content](#table-of-content)
