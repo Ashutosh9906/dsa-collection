@@ -26,6 +26,8 @@
     - [Approach](#approach-8)
   - [**Leetcode 1351** \[Count Negative Numbers in a Sorted Matrix\] 4⭐](#leetcode-1351-count-negative-numbers-in-a-sorted-matrix-4)
     - [Approach](#approach-9)
+  - [**Leetcode 756** \[Pyramid Transition Matrix\] 1⭐](#leetcode-756-pyramid-transition-matrix-1)
+    - [Approach](#approach-10)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -212,3 +214,11 @@
    - `Time` -> *O(nlogm)*
    - `Space` -> *O(1)*
 7. [Table Of Content](#table-of-content) 
+
+## **Leetcode 756** [Pyramid Transition Matrix] 1⭐
+- **Date** -> 29/12/2025
+- **Link** -> https://leetcode.com/problems/pyramid-transition-matrix/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. Very hard to understand and explain refer -> [Explanation/Approach](https://leetcode.com/problems/pyramid-transition-matrix/solutions/7447084/didnt-understand-youll-get-it-now-by-goh-ggog/)
+2. [Table Of Content](#table-of-content) 
