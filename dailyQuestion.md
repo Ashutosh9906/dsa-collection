@@ -26,7 +26,7 @@
     - [Approach](#approach-8)
   - [**Leetcode 1351** \[Count Negative Numbers in a Sorted Matrix\] 4⭐](#leetcode-1351-count-negative-numbers-in-a-sorted-matrix-4)
     - [Approach](#approach-9)
-  - [**Leetcode 756** \[Pyramid Transition Matrix\] 1⭐](#leetcode-756-pyramid-transition-matrix-1)
+  - [**Leetcode 756** \[Pyramid Transition Matrix\] 2⭐](#leetcode-756-pyramid-transition-matrix-2)
     - [Approach](#approach-10)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
@@ -215,10 +215,23 @@
    - `Space` -> *O(1)*
 7. [Table Of Content](#table-of-content) 
 
-## **Leetcode 756** [Pyramid Transition Matrix] 1⭐
+## **Leetcode 756** [Pyramid Transition Matrix] 2⭐
 - **Date** -> 29/12/2025
 - **Link** -> https://leetcode.com/problems/pyramid-transition-matrix/description/
 - **Difficulty** -> MEDIUM
 ### Approach
-1. Very hard to understand and explain refer -> [Explanation/Approach](https://leetcode.com/problems/pyramid-transition-matrix/solutions/7447084/didnt-understand-youll-get-it-now-by-goh-ggog/)
-2. [Table Of Content](#table-of-content) 
+1. They have given the base of the pyramid we have to build the remaining above layres with the help of the allowed string
+2. We will take the window two char from the base and lookout in allowed matching first two char to the window the 3rd char in the allowed string will be the char that will be placed at the top of those two char 
+3. We have to find out whether we can form the pyramid or not using those allowed array and base
+4. At first we will make an mp to store the allowed in from of `unordered_map<string, vector<char>> mp`
+5. We will alse use an ds to store bad layers that can't be build further to avoid unnecessary recursive call of form `unordered_set<string> bad`
+   - On purpose we choose the unordered_set as it have an look up time complexicty of *O(1)*
+   - It uses hash table to store the values and prevent duplicates as well
+6. We will have an temp string to store the next we will take first two char from base take it's allowed add the the temp and call with pos+1
+7. At the point where the **pos == base.length()-1** we check with help of function `solve()` whether it id bad if not call the the backTrack with the temp as base and pos '0' 
+8. If the call from the solve to backTrack return false add that srting to bad 
+9. Likewise we try each combination of the allowed pyramid and if any point we reach base.length() == 1 return true;
+10. Complexity: **(k is small (≤ 26, realistically ≤ 3–5), n ≤ 8)**
+       - `Time` -> *O(k<sup>n</sup>)*
+       - `Space` -> *O(k<sup>n</sup>)*: bad string if the base itslef fails + *O(n)*: recursive stack space + *O(A)*: storing mp for allowed pyramid
+7. [Table Of Content](#table-of-content) 
