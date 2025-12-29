@@ -24,8 +24,12 @@
     - [Approach](#approach-7)
   - [10. Prefix to Postfix Conversion 3⭐](#10-prefix-to-postfix-conversion-3)
     - [Approach](#approach-8)
-  - [11. Next Greater Element 3⭐](#11-next-greater-element-3)
+  - [11. Next Greater Element - I 3⭐](#11-next-greater-element---i-3)
     - [Approach](#approach-9)
+  - [11. Next Greater Element - II 2⭐](#11-next-greater-element---ii-2)
+    - [Approach](#approach-10)
+  - [12. Next Smaller Element 4⭐](#12-next-smaller-element-4)
+    - [Approach](#approach-11)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -179,7 +183,7 @@
      - `Space` -> *O(n)*: stack space
 5. [To Table Of Content](#table-of-content)
 
-## 11. Next Greater Element 3⭐
+## 11. Next Greater Element - I 3⭐
 - **Link** -> https://leetcode.com/problems/next-greater-element-i/submissions/1868363525/
 - **Difficulty** -> MEDIUM
 ### Approach
@@ -194,3 +198,30 @@
      - `Time` -> *O(2n)*: to generate the mp + *O(m)*: to push the nge into the ans
      - `Space` -> *O(n)*: to store mp + *O(n)*: stack space + *O(n)*: to store the answer
 9. [To Table of Content](#table-of-content)
+
+## 11. Next Greater Element - II 2⭐
+- **Link** -> https://leetcode.com/problems/next-greater-element-ii/submissions/1868492885/
+- **Difficulty** -> MEDIUM
+### Approach
+> If the question about circular array double the array hypothetically iterate 2n-1 -> 0 vice versa while using use i%n
+1. We will use the concept of circulat array by hypothetically doubling the array
+2. Same process as the last question empty the stack the until st.top() is bigger than current element
+3. If the stack is empty push -1 in ans else push st.top() into the answer
+4. At the end of iteration push the current element into the stack
+5. Complexity:
+     - `Time` -> *O(4n)*: to iterate through each element twice and push and pop from stack twice as n
+     - `Space` -> *O(2n)*: stack space + *O(n)*: to store the answer
+6. [To Table of Content](#table-of-content)
+
+## 12. Next Smaller Element 4⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/immediate-smaller-element1142/1
+- **Difficulty** -> EASY
+### Approach
+1. Same as Question no 10. Next Greter element but in the opposite way
+2. We will empty the stack until the st.top() is smaller than the current element
+3. If the stack is empty push -1 into the answer, else push st.top()
+4. At the end of iteration push the current element into the stack
+5. Complexity:
+     - `Time` -> *O(2n)*: to compute and store the gte n for iteration n for push and pop operation in stack
+     - `Space` -> *O(n)*: stack space + *O(n)*: to store the answer
+6. [To Table of Content](#table-of-content)
