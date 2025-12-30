@@ -28,6 +28,8 @@
     - [Approach](#approach-9)
   - [**Leetcode 756** \[Pyramid Transition Matrix\] 2⭐](#leetcode-756-pyramid-transition-matrix-2)
     - [Approach](#approach-10)
+  - [**Leetcode 840** \[Magic Squares In Grid\] 4⭐](#leetcode-840-magic-squares-in-grid-4)
+    - [Approach](#approach-11)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -236,4 +238,19 @@
        - `Space` -> *O(k<sup>n</sup>)*: bad string if the base itslef fails + *O(n)*: recursive stack space + *O(A)*: storing mp for allowed pyramid
 7. [Table Of Content](#table-of-content) 
 
-![LeetCode Stats](https://leetcard.jacoblin.cool/Ashutosh4069?theme=dark)
+## **Leetcode 840** [Magic Squares In Grid] 4⭐
+- **Date** -> 30/12/2025
+- **Link** -> https://leetcode.com/problems/magic-squares-in-grid/description/
+- **Difficulty** -> Medium
+### Approach
+1. we iterate through row from i=0 -> i+2<n and cloumns j=0 -> j+2<m so that we can look out through every possible matrix
+2. An important is check is the middle element should 5 (compulsary) else skip the iteration
+3. An for for x=i -> i+3 inside it y=j -> j+3 to check all the elements for the matrix are unique and in the range of 0 -> 9
+> this innser two for loop of x and y would not be considerd into the time compexity as they are iterating for an constant 9 times we wont add them up, time complexity counts those for loops who changes as per the input not constant for each test case
+4. If all the elements are unique and in the valid range we check the combinations 3 row, 3 cloums, 2 diagonals
+5. At any moment the combination break on the spot skip the iteration
+6. At the end increment the counter for and magix matrix
+7. Complexity:
+   - `Time` -> *O(n * m)*: outer tow main loops
+   - `Space` -> *O(1)*: no extra is used
+8. [Table Of Content](#table-of-content) 
