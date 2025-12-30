@@ -30,6 +30,11 @@
     - [Approach](#approach-10)
   - [12. Next Smaller Element 4⭐](#12-next-smaller-element-4)
     - [Approach](#approach-11)
+  - [13. Number of NGEs to the right 3⭐](#13-number-of-nges-to-the-right-3)
+    - [Approach](#approach-12)
+  - [14. Trapping Rainwater 3⭐](#14-trapping-rainwater-3)
+    - [Approach - I](#approach---i)
+    - [Approach - II](#approach---ii)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -224,4 +229,39 @@
 5. Complexity:
      - `Time` -> *O(2n)*: to compute and store the gte n for iteration n for push and pop operation in stack
      - `Space` -> *O(n)*: stack space + *O(n)*: to store the answer
+6. [To Table of Content](#table-of-content)
+
+## 13. Number of NGEs to the right 3⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/number-of-nges-to-the-right/1
+- **Difficulty** -> Easy
+### Approach
+> Lookout for the optmal approach, this question can't be solved usng monotonic stack lonely it is optimized with the help of high level algorithm
+1. The absolute brute force approach is we loop into the indices array 
+2. Inside it we loop from the pos it contains till the end of the arr and maintain the counter to count the nge
+3. At the end we push the count into the ans 
+4. Complexity:
+     - `Time` -> *O(n * m)*
+     - `Space` -> *O(n)*: to store the answer
+5. [To Table of Content](#table-of-content)
+
+## 14. Trapping Rainwater 3⭐
+- **Link** -> https://leetcode.com/problems/trapping-rain-water/submissions/1869184349/
+- **Difficulty** -> HARD
+### Approach - I
+1. We will do some pre computation of prefix ans postfix
+2. The prefix array will contain the max until that element from the left
+3. The postfix array will contain the max until that element from the right
+4. We will iterate through each element store the lMax from prefix[i] and rmax from postfix[i]
+5. The unit of water can be stored will be min(lmax, rmax) - arr[i] add those to the ans
+6. Complexity:
+     - `Time` -> *O(2n)*: to precompute prefix ans postfix + *O(n)*: actual calculation of unit of water
+     - `Space` -> *O(2n)*: to store the prefix as postfix
+### Approach - II
+1. We will maintain two pointers and iterate through whole array through them
+2. Decide which side to proceed using `arr[l] <= arr[r]`
+3. In left we see if scope to store the water and do `total += lMax - arr[l]`, else store lMax = arr[i] and move l++
+4. In right we do the same as we perform into the left check store using `total += rMax - arr[r]`, else store rMax = arr[i] and move r++
+5. Complexity:
+     - `Time` -> *O(n)*
+     - `Space` -> *O(1)*
 6. [To Table of Content](#table-of-content)
