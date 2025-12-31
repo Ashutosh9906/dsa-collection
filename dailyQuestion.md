@@ -30,6 +30,8 @@
     - [Approach](#approach-10)
   - [**Leetcode 840** \[Magic Squares In Grid\] 4⭐](#leetcode-840-magic-squares-in-grid-4)
     - [Approach](#approach-11)
+  - [**Leetcode 1970** \[Last Day Where You Can Still Cross\] 1⭐](#leetcode-1970-last-day-where-you-can-still-cross-1)
+    - [Approach](#approach-12)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -254,3 +256,11 @@
    - `Time` -> *O(n * m)*: outer tow main loops
    - `Space` -> *O(1)*: no extra is used
 8. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1970** [Last Day Where You Can Still Cross] 1⭐
+- **Date** -> 31/12/2025
+- **Link** -> https://leetcode.com/problems/last-day-where-you-can-still-cross/description/
+- **Difficult** -> HARD
+### Approach
+1. Qestion of Tree/Graph currently unable to solve for solution refer -> [Intuition/Approach](https://leetcode.com/problems/last-day-where-you-can-still-cross/solutions/7452254/hard-super-easy-step-by-step-clear-expla-mfjz/)
+2. [Table Of Content](#table-of-content) 
