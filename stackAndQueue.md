@@ -35,6 +35,10 @@
   - [14. Trapping Rainwater 3⭐](#14-trapping-rainwater-3)
     - [Approach - I](#approach---i)
     - [Approach - II](#approach---ii)
+  - [15. Sum of subarray minimum 2⭐](#15-sum-of-subarray-minimum-2)
+    - [Approach](#approach-13)
+  - [16. Astroid Collison 3⭐](#16-astroid-collison-3)
+    - [Approach](#approach-14)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -264,4 +268,33 @@
 5. Complexity:
      - `Time` -> *O(n)*
      - `Space` -> *O(1)*
+6. [To Table of Content](#table-of-content)
+
+## 15. Sum of subarray minimum 2⭐
+- **Link** -> https://leetcode.com/problems/sum-of-subarray-minimums/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. Looking at the problem a bit different way we have to find that specifc element can contribute in how many sub Array as smallest
+2. We will find the nse(next smallest elemtn) to right and pse(previous smallest elemtn) to right for each specifc element
+3. Those will be boundary of the that element for contributation
+4. We can calculate the ans using `left = i - pse[i];` and `right = nse[i] - i` using those total can be calculated like `total = (total + ((right * left * 1LL * arr[i]) % mod)) % mod` here **mod = 1e9 + 7**
+5. We would calculate the nse ans pse as usual we found in *11. Next Greater Element*
+6. A small in finding pse would be insted of removing element >= we will only remove them if they are > element
+7. This alteration is used to avoid mis calculation in test case like [1, 1], to avoid considering same sub array twice
+8. Complexity:
+     - `Time` -> *O(2n)*: to find nse + *O(2n)*: to find pse + *O(n)*: to calculate final ans
+     - `Space` -> *(2n)*: for nse and stack + *O(2n)*: for pse and stack
+9. [To Table of Content](#table-of-content)
+
+## 16. Astroid Collison 3⭐
+- **Link** -> https://leetcode.com/problems/asteroid-collision/submissions/1870059716/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will iterate through each element into the array
+2. If the element is positive directly push it into the stack
+3. else `while (!st.empty() && st.top() > 0 &&st.top() < abs(arr[i]))` pop the top element
+4. At the end perform some check to handle edge case like if `st.top() == ans(arr[i])` pop the element if the stack is empty or st.top() is -ve push the element into the stack
+5. Complexity:
+     - `Time` -> *O(n)*: external for loop + *O(n)*: to pop using interanl while loop
+     - `Space` -> *O(n)*: stack space + *O(n)*: to store the answer
 6. [To Table of Content](#table-of-content)
