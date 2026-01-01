@@ -39,6 +39,10 @@
     - [Approach](#approach-13)
   - [16. Astroid Collison 3⭐](#16-astroid-collison-3)
     - [Approach](#approach-14)
+  - [17. Sum of subarray ranges 4⭐](#17-sum-of-subarray-ranges-4)
+    - [Approach](#approach-15)
+  - [18. Remove k digits 3⭐](#18-remove-k-digits-3)
+    - [Approach](#approach-16)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -298,3 +302,37 @@
      - `Time` -> *O(n)*: external for loop + *O(n)*: to pop using interanl while loop
      - `Space` -> *O(n)*: stack space + *O(n)*: to store the answer
 6. [To Table of Content](#table-of-content)
+
+## 17. Sum of subarray ranges 4⭐
+- **Link** -> https://leetcode.com/problems/sum-of-subarray-ranges/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. Subarrya ranges means max - min of that specific subArray, looking through another point of view we can say is differnce between max of all subArray - min of all subArray
+2. We will take the sum of subArray minimum same as like problem No 15. and sub of subArrray maximum by just changing some naming and conditions
+3. Point to be noted no need to `mod` in this problem as it is not mentioned
+4. For proper explanation refer -> [15. Sum of subarray minimum](#15-sum-of-subarray-minimum-2)
+5. Complexity:
+     - `Time` -> *O(10n)*: double for min and max
+     - `Space` -> *O(10n)*: double for min ans max
+6. [To Table of Content](#table-of-content)
+
+## 18. Remove k digits 3⭐
+- **Link** -> https://leetcode.com/problems/remove-k-digits/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will use monotonic stack, stack will contain the answer
+2. If the top element is larger than current pop the element and decrement the k by 1
+3. At the end of the iteration push the current number into the stack
+4. There are some edge cases that we have to handle
+     1. If the string is empty return "0"
+     2. If the string is like [1, 2, 3, 4, 5, 6] no element will be removed
+     3. If the string has leading 0s we should remove them
+5. Solutions to solve all the edge cases 
+     1. If the length of the string is `'0'` return "0"
+     2. After the whole iteration if k > 0 pop the top of stack until k = 0, add st.top() to the answer string
+     3. If there are leafin 0s in the array they will be placed in end of the answer string, if there are any 0s at the end pop_back()
+6. At end reverse the string that will be final answer, perform the check for empty string
+7. Complexity:
+     - `Time` -> *O(n)*: for first iteration + *O(k)*: if none of the element is removed + *O(n)*: transfer stack content to string + *O(n)*: to remove leading 0s appearing at the end of the string and reverse the string
+     - `Space` -> *O(n)*: stack space + *O(n)*: to store the ans
+8. [To Table of Content](#table-of-content)
