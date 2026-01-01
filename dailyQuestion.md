@@ -32,6 +32,8 @@
     - [Approach](#approach-11)
   - [**Leetcode 1970** \[Last Day Where You Can Still Cross\] 1⭐](#leetcode-1970-last-day-where-you-can-still-cross-1)
     - [Approach](#approach-12)
+  - [**Leetcode 66** \[Plus One\] 5⭐](#leetcode-66-plus-one-5)
+    - [Approach](#approach-13)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -264,3 +266,15 @@
 ### Approach
 1. Qestion of Tree/Graph currently unable to solve for solution refer -> [Intuition/Approach](https://leetcode.com/problems/last-day-where-you-can-still-cross/solutions/7452254/hard-super-easy-step-by-step-clear-expla-mfjz/)
 2. [Table Of Content](#table-of-content) 
+
+## **Leetcode 66** [Plus One] 5⭐
+- **Date** -> 01/01/2026
+- **Link** -> https://leetcode.com/problems/plus-one/description/
+- **Difficulty** -> EASY
+### Approach
+1. Iterate through an for loop to add the `'1'` to the last element and maintain an carry
+2. If the at the end the array ends and still carry remains declare an new variable push `'1'` at first and transfer all the element from original array to it
+3. Complexity:
+   - `Time` -> *O(n)*: to add the carry at the end (not always n) + *O(n)*: if the carry remains to transfer all the element to ans
+   - `Space` -> *O(n)*: if the carry remains / *O(1)*: no carry remains
+4. [Table Of Content](#table-of-content) 
