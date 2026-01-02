@@ -43,6 +43,11 @@
     - [Approach](#approach-15)
   - [18. Remove k digits 3⭐](#18-remove-k-digits-3)
     - [Approach](#approach-16)
+  - [19. Largest Rectangle in Histogram 3⭐](#19-largest-rectangle-in-histogram-3)
+    - [Approach - I](#approach---i-1)
+    - [Approach - II](#approach---ii-1)
+  - [20. Maximal Rectagle 3⭐](#20-maximal-rectagle-3)
+    - [Approach](#approach-17)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -336,3 +341,44 @@
      - `Time` -> *O(n)*: for first iteration + *O(k)*: if none of the element is removed + *O(n)*: transfer stack content to string + *O(n)*: to remove leading 0s appearing at the end of the string and reverse the string
      - `Space` -> *O(n)*: stack space + *O(n)*: to store the ans
 8. [To Table of Content](#table-of-content)
+
+## 19. Largest Rectangle in Histogram 3⭐
+- **Link** -> https://leetcode.com/problems/largest-rectangle-in-histogram/description/
+- **Difficulty** -> HARD
+### Approach - I
+1. We will do all the pre computation same as 15. Sum of subarray minimum not a single change for pre computaion of `nse` and `pse`
+2. We would just change the formula to derive the solution we will have and variable to store thr max are
+3. Are would `area = max(area, arr[i] * (nse[i] - pse[i] - 1))`, just a small change in pse use >= insted of just >
+4. Complexity:
+     - `Time` -> *O(2n)*: to find nse + *O(2n)*: to find pse + *O(n)*: to calculate final ans
+     - `Space` -> *(2n)*: for nse and stack + *O(2n)*: for pse and stack
+### Approach - II
+1. While traversing the array we can maintain the pse as we move forward the question is how do we get the nse of the specific element
+2. we would traverse through each element from 0 -> n-1
+3. At the very start we have an for loop for pse with condition arr[st.top()] >= arr[i]
+4. But insted of plain st.pop() we would do the computation
+5. If observed carefully the element where we is the next smallest element for the element st.top()
+6. We compute like `element = arr[at.top()]` and st.pop() it `nse = i` and `pse = st.top()`(if not empty else -1) calculate using the previous formula
+7. Using it we would touch neary each elemnt, but if there are elements into the stack it means there is no next smallest element for them
+8. We compute till st.empty() element = arr[st.top()](st.pop()), nse = n, pse = st.top()(if stack is not empty else -1) and calculate, now we have touched and computed each and every element into the array
+9. Complexity:
+     - `Time` -> *O(n)*: for external traversal of the array + *O(n)*: pop out the element from the stack and the computation including the outside while loop
+     - `Space` -> *O(n)*: stack space for pse
+9. [To Table of Content](#table-of-content)
+
+## 20. Maximal Rectagle 3⭐
+- **Link** -> https://leetcode.com/problems/maximal-rectangle/description/
+- **Prerequisite** -> https://leetcode.com/problems/subarray-sum-equals-k/description/
+- **Difficulty** -> HARD
+### Approach
+1. There is an prerequisite to this question, once revise it's concept and then start over this question
+2. This question is just same as previoud to find max area of histogram, just insted of array we have 2D matrix 
+3. We will traverse row by row generate an array which reperesent the bar of histogram and calculate further
+4. To optimize generating bars each time we will pre compute the bars by generating an new preSum array
+5. we traverse column wise and add the 1 and store at the current place in the preSum arrray, if at any place an '0' occurs change the sum = 0
+6. Again traverse through 0 -> n-1 at each iteration call the function largestHist and pass the row of the preSum as array of bars
+7. Take max at each time to get the Maximal rectangle, just look as the input array is of type `char`
+8. Complexity:
+     - `Time` -> *O(n * m)*: to pre compute the preSum + *O(n * 2m)*: n to traverese and 2m for largestHist function
+     - `Space` -> *O(n * m)*: to store the preSum array + *O(n)*: stack used in largestHist function
+9. [To Table of Content](#table-of-content)
