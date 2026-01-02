@@ -34,6 +34,8 @@
     - [Approach](#approach-12)
   - [**Leetcode 66** \[Plus One\] 5⭐](#leetcode-66-plus-one-5)
     - [Approach](#approach-13)
+  - [**Leetcode 961** \[N-Repeated Element in Size 2N Array\] 3⭐](#leetcode-961-n-repeated-element-in-size-2n-array-3)
+    - [Approach](#approach-14)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -278,3 +280,22 @@
    - `Time` -> *O(n)*: to add the carry at the end (not always n) + *O(n)*: if the carry remains to transfer all the element to ans
    - `Space` -> *O(n)*: if the carry remains / *O(1)*: no carry remains
 4. [Table Of Content](#table-of-content) 
+
+## **Leetcode 961** [N-Repeated Element in Size 2N Array] 3⭐
+- **Date** -> 02/01/2026
+- **Link** -> https://leetcode.com/problems/n-repeated-element-in-size-2n-array/description/
+- **Difficulty** -> EASY
+### Approach
+1. The extreme naive approach will be maintain an hash table to identify which number will occurs n times 
+2. The moment we could find an element twice will be the answer
+3. Complexity:
+   - `TIme` -> *O(n)*: to traverse through whole and generate hash table
+   - `Space` -> *O(n)*: to store the hash table
+4. Point to be noted as they mentioned the size of string is `2*N` and there will be `n+1` unique elements
+5. If the numbers occurs n times it has occur twice in an set of 3 elements otherwise it cound't accumulate that much count
+6. So we can traverse through whole array and compare the current element with 1 further ans 2 further if any them matches return the current
+7. But no such trplet comes to have same element then just return the last element of the array ex. `{4, 2, 1, 4}`
+8. Complexity:
+   - `Time` -> *O(n)*: to traverse and commpare
+   - `Space` -> *O(1)*
+9. [Table Of Content](#table-of-content) 
