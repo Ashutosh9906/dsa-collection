@@ -48,6 +48,8 @@
     - [Approach - II](#approach---ii-1)
   - [20. Maximal Rectagle 3⭐](#20-maximal-rectagle-3)
     - [Approach](#approach-17)
+  - [21. Sliding window maximum 4⭐](#21-sliding-window-maximum-4)
+    - [Approach](#approach-18)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -381,4 +383,18 @@
 8. Complexity:
      - `Time` -> *O(n * m)*: to pre compute the preSum + *O(n * 2m)*: n to traverese and 2m for largestHist function
      - `Space` -> *O(n * m)*: to store the preSum array + *O(n)*: stack used in largestHist function
+9. [To Table of Content](#table-of-content)
+
+## 21. Sliding window maximum 4⭐
+- **Link** -> https://leetcode.com/problems/sliding-window-maximum/description/
+- **Difficulty** -> HARD
+### Approach
+1. It is same as we practiced in finding next greates element, only change is insted of stack we use double ended queue(deque)
+2. Will mantain the window and push the elements in dq in and decreaing manner
+3. The maximum element of the window will be the dq.front() of the deque
+4. At the very end of the iteration we will remove dq.front() if the element is exceeds i-k limit of the window
+5. At the end when window moves ahead we push new element into the deque and add the front into the answer
+6. Complexity:
+     - `Time` -> *O(n)*: for external for loop to traverse through array + *O(n)*: for all the push and pop operations of deque
+     - `Space` -> *O(k)*: deque size for each window + *O(n-k)*: to store the answer
 9. [To Table of Content](#table-of-content)
