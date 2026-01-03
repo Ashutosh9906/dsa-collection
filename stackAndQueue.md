@@ -52,8 +52,10 @@
     - [Approach](#approach-18)
   - [22. Online stock space 4⭐](#22-online-stock-space-4)
     - [Approach](#approach-19)
-  - [23. The celebrity probelem](#23-the-celebrity-probelem)
+  - [23. The celebrity probelem 3⭐](#23-the-celebrity-probelem-3)
     - [Approach](#approach-20)
+  - [24. LRU Cache 4⭐](#24-lru-cache-4)
+    - [Approach](#approach-21)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -415,7 +417,7 @@
      - `Space` -> *O(n)*: stack space
 5. [To Table of Content](#table-of-content)
 
-## 23. The celebrity probelem
+## 23. The celebrity probelem 3⭐
 - **Link** -> https://www.geeksforgeeks.org/problems/the-celebrity-problem/1
 - **Difficulty** -> HARD
 ### Approach
@@ -432,3 +434,25 @@
      - `Time` -> *O(n)*: to eleminate who can't be the celeb + *O(n)*: final check for the celeb
      - `Space` -> *O(1)*
 5. [To Table of Content](#table-of-content)
+
+## 24. LRU Cache 4⭐
+- **Link** -> https://leetcode.com/problems/lru-cache/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will be using Doubly Linked List and unordered_map to perform all the operation in *O(1)* time complexity
+2. At first define an class Node and initiate all the required variables first, second, next, prev
+3. For better use define two node head and tail pointing each other with value in first and second as -1
+4. `put()` ->
+     1. Check if the element alredy exist into the map
+     2. If exist then then it's value remove from them alter all the node pointer ahead of it and behind of it and place it just next to the head
+     3. Else If there is space to add new node than add an new just ahead of the head
+     4. Else no space to add new node delete the last node using tail->prev and add an new node at the very front
+     5. Dont miss the to free the space of the nodes which are purmonently removed from the DLL, make changes into the stack as per case
+5. `get()` ->
+     1. If we found the key into the map then we will take the pointer from map[key]
+     2. remove it from it's current place alter the links of the node ahead of it and behind and return the temp->second as the required ans
+     3. If we don't find the key in map strate forward return -1
+6. Complexity:
+     - `Time` -> *O(1)*: for each function we are just changing the links and no for loops are used, even mp[find] tooks *o(1)* fr loopup
+     - `Space` -> *O(capacity)*: passed in testCase
+7. [To Table of Content](#table-of-content)
