@@ -50,6 +50,10 @@
     - [Approach](#approach-17)
   - [21. Sliding window maximum 4⭐](#21-sliding-window-maximum-4)
     - [Approach](#approach-18)
+  - [22. Online stock space 4⭐](#22-online-stock-space-4)
+    - [Approach](#approach-19)
+  - [23. The celebrity probelem](#23-the-celebrity-probelem)
+    - [Approach](#approach-20)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -398,3 +402,33 @@
      - `Time` -> *O(n)*: for external for loop to traverse through array + *O(n)*: for all the push and pop operations of deque
      - `Space` -> *O(k)*: deque size for each window + *O(n-k)*: to store the answer
 9. [To Table of Content](#table-of-content)
+
+## 22. Online stock space 4⭐
+- **Link** -> https://leetcode.com/problems/online-stock-span/description/
+- **Difficulty** -> HARD
+### Approach
+1. This is an class based question, we maintain an stack of pair of int, int
+2. Whenever an call is made initialse an counter to 1, inside the while pop all the elements whose first is less than current
+3. Add the st.top().second to the count as the span until an number greater than current appears, at the end store the element st.emplace(price, count) and return the count
+4. Complexity:
+     - `Time` -> *O(2n)*: think it as an normal nge problem for everall one test case
+     - `Space` -> *O(n)*: stack space
+5. [To Table of Content](#table-of-content)
+
+## 23. The celebrity probelem
+- **Link** -> https://www.geeksforgeeks.org/problems/the-celebrity-problem/1
+- **Difficulty** -> HARD
+### Approach
+1. The extreme naive solution is we check using nested loop if the person is known by everyone (except i == j) and push it in an arr
+2. We will check that the person and the arr know anyone it does not know any one then he is the celebrity
+3. To eleminate the *O(n<sup>2</sup>)* approach we will use two pointer method
+4. Declare tow pointers top = 0 and down = n-1 and eleminate the persons who can't be celebrity
+     1. If the mat[top][down] == 1, means top knows down he can't be celeb so top++
+     2. If the mat[down][top] == 1, means down knows top he can't be celeb so down--
+     3. Else down does not know top and vice versa so both cant be the celeb -> top++ & doen--
+5. Iterate util top < down, at the end if down exceed top return -1
+6. If top == down we perform an last check to check whether all the element in it row or `'0'` and in column are `'1'` else return -1, if passes he is the celeb
+7. Comlplexity:
+     - `Time` -> *O(n)*: to eleminate who can't be the celeb + *O(n)*: final check for the celeb
+     - `Space` -> *O(1)*
+5. [To Table of Content](#table-of-content)
