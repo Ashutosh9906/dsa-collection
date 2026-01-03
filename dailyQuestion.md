@@ -36,6 +36,8 @@
     - [Approach](#approach-13)
   - [**Leetcode 961** \[N-Repeated Element in Size 2N Array\] 3⭐](#leetcode-961-n-repeated-element-in-size-2n-array-3)
     - [Approach](#approach-14)
+  - [**Leetcode 1411** \[Number of Ways to Paint N × 3 Grid\]](#leetcode-1411-number-of-ways-to-paint-n--3-grid)
+    - [Approach](#approach-15)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -297,5 +299,26 @@
 7. But no such trplet comes to have same element then just return the last element of the array ex. `{4, 2, 1, 4}`
 8. Complexity:
    - `Time` -> *O(n)*: to traverse and commpare
+   - `Space` -> *O(1)*
+9. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1411** [Number of Ways to Paint N × 3 Grid]
+- **Date** -> 03/01/2026
+- **Link** -> https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/description/
+- **Difficulty** -> HARD
+### Approach
+1. There are type of patterns we can form using `R`, `G` & `Y` 1]. ABC & 2]. ABA
+2. We have form an griid of n * 3, it is fixed that n rows and 3 clumns
+3. Try out all the combinations in which no two cell have same colours vertically and horizontal as well
+4. Monment of abservation let n = 2
+   1. Let the 1st row be `RGY`(ABC) which elements can be placed in be placed in 2nd row are `YRG`, `GYR`(2 * ABC) + `GRG`, `GYG`(2 * ABA)
+   2. Let the 1st row be `RGR`(ABA) the elements can be placed in 2nd row are `GYG`, `GRG`, `YRY`(3 * ABA) + `GRY`, `YRG`(2 * ABC)
+5. As we can observe in above case after placing an row `ABA` we can place 2*ABC + 3*ABA, and if the row is `ABC` we can plce 2*ABC + 2*ABA
+6. So every time when we place an row we can calculate the the number of rows can be placed below it, which woul be
+   - a = a*3 + b*2;
+   - b = a*2 + b*3;
+7. We would iterate from 2 -> n and each time we can calcaulte and the end we will return a + b
+8. Complexity:
+   - `Time` -> *O(n)*: iterate from 2 -> n
    - `Space` -> *O(1)*
 9. [Table Of Content](#table-of-content) 
