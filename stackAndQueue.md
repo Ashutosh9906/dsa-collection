@@ -56,6 +56,8 @@
     - [Approach](#approach-20)
   - [24. LRU Cache 4⭐](#24-lru-cache-4)
     - [Approach](#approach-21)
+  - [25. LFU Cache 2⭐](#25-lfu-cache-2)
+    - [Approach](#approach-22)
 
 ## 1. Implement Stack using Queue 4⭐
 - **Link** -> https://leetcode.com/problems/implement-stack-using-queues/description/
@@ -456,3 +458,41 @@
      - `Time` -> *O(1)*: for each function we are just changing the links and no for loops are used, even mp[find] tooks *o(1)* fr loopup
      - `Space` -> *O(capacity)*: passed in testCase
 7. [To Table of Content](#table-of-content)
+
+## 25. LFU Cache 2⭐
+- **Link** -> https://leetcode.com/problems/lfu-cache/description/
+- **Difficulty** -> HARD
+### Approach
+1. This is bit same as LRU cache but in this case while removing the node it should be removed on the basis of least used with the help of counter
+2. We have to maintain an counter of each node for every `get()` and `put()` operation, When the cache size is full the remove the node with least frequency
+3. Declare Node with key, value, cnt, to store values and next, prev to store the node pointers, inside the constructor assign them values
+4. class List -> 
+   - Declare an class List to maintain the node freqwise, declare head and tail for better and easy insertion and deletion with value 0, 0 pointing each others
+   - `removeNode()` -> function to remove the node from it's current position and alter all the node links ahead of it and behind, wihout deleting the node which will be used further
+   - `addFront()` -> function to insert the node which was previously removed or new node at the very start of the list ahead of head pointer alters the node links as well
+5. class LFUCache -> 
+     - we declare two maps `map<int, Node*> keyNode;` to store the key and it's pos in LL and `map<int, List*> freqListMap;` to maintain the freqCount wise node gegeration
+     - WE declar maxSizeCache to stoer capacity, minFreq to store the minFreq among all the nodes, curSize to stoer number of elements are present overall
+     - `updateFreqListMap()` -> used to update the freq and location of the node whenever an put() ot get() funciton is called
+         - first we remove the key and from the keyNode maps
+         - then we remove that specifc node from the list using `freqListMap[node->cnt]->removeNode(node)`
+         - If the node->cnt is equal to minFreq and there is no one left in that list then increment the minFreq counter
+         - We declare an new temp list named nextHigherFreqList to add the removed node to it's updated freqList pos
+         - If the node->cnt+1 freq list already present then we assign nextHigherFreqList it's value
+         - Increment the couner of the node and add it to the front of the list of nextHigherFreqList
+         - make changes in `freqListMap[node->cnt] = nextHigherFreqList;` and `keyNode[node->key] = node;`
+6. get() -> 
+     - We check in the keyNode if the key present if yes then store it's location in an temp node
+     - extract it's value into the temp variable and call `updateFreqListMap(node)` function to alter the node
+     - return the val at the end if keyNode not found return -1
+7. put() -> 
+     - At first we lookout into the keyNode if the key already present if yes then store node location in an temp node, alter the value at the node and call `updateFreqListMap(node)`
+     - If curSize == maxSizeCache which means cache is full we remove the node with minFreq and if conflict occurs we remove the least add node
+     - At first we take the list loc from `List* list = freqListMap[minFreq];` erase that specific node using `keyNode.erase(list->tail->prev->key);` remove the node from the list and decrese the currSize
+     - further as there is space we increment the counter curSize++, adding new value means node of minFreq = 1, declare an new temp named listFreq list to place it at it's correct location
+     - We check into the freqListMap if previously any list with such freq exist if than store it's value in listFreq, create an new node pass the key, value and cnt as 1, add the node to the list `listFreq->addFront(node);`
+     - Update the `keyNode[key] = node;` and `freqListMap[minFreq] = listFreq;`
+8. Complexity:
+     - `Time` -> *O(n)*: numbers of queries to the class LFU
+     - `Space` -> *O(capacity)*
+9. [To Table of Content](#table-of-content)      
