@@ -36,8 +36,10 @@
     - [Approach](#approach-13)
   - [**Leetcode 961** \[N-Repeated Element in Size 2N Array\] 3⭐](#leetcode-961-n-repeated-element-in-size-2n-array-3)
     - [Approach](#approach-14)
-  - [**Leetcode 1411** \[Number of Ways to Paint N × 3 Grid\]](#leetcode-1411-number-of-ways-to-paint-n--3-grid)
+  - [**Leetcode 1411** \[Number of Ways to Paint N × 3 Grid\] 3⭐](#leetcode-1411-number-of-ways-to-paint-n--3-grid-3)
     - [Approach](#approach-15)
+  - [**Leetcode 1390** \[Four Divisors\] 4⭐](#leetcode-1390-four-divisors-4)
+    - [Approach](#approach-16)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -302,7 +304,7 @@
    - `Space` -> *O(1)*
 9. [Table Of Content](#table-of-content) 
 
-## **Leetcode 1411** [Number of Ways to Paint N × 3 Grid]
+## **Leetcode 1411** [Number of Ways to Paint N × 3 Grid] 3⭐
 - **Date** -> 03/01/2026
 - **Link** -> https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/description/
 - **Difficulty** -> HARD
@@ -322,3 +324,17 @@
    - `Time` -> *O(n)*: iterate from 2 -> n
    - `Space` -> *O(1)*
 9. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1390** [Four Divisors] 4⭐
+- **Date** -> 04/01/2026
+- **Link** -> https://leetcode.com/problems/four-divisors/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We declate two variable totalSum and cnt to compute the final answer, we iterate through each element into the arr
+2. For each element we iterate form 1 -> √nums[i], if nums[i] % i == 0 i is an divisor and if nums[i]/i != i then it is also an divisor
+3. Increment the conter as per the divisor we get, mantain the sum of all the divisors at any moment the count of divisort exceeds 4 break
+4. After the end of inner loop of the cnt is 4 means it has 4 diviosr then add it's sum to the totalSum and return
+5. Complexity:
+   - `Time` -> *O(n)*: for exteranl foor loop * *O(√nums[i])*: for each element to find it's divisor
+   - `Space` -> *O(1)*
+6. [Table Of Content](#table-of-content) 
