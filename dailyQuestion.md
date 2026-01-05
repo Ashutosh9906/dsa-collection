@@ -40,6 +40,8 @@
     - [Approach](#approach-15)
   - [**Leetcode 1390** \[Four Divisors\] 4⭐](#leetcode-1390-four-divisors-4)
     - [Approach](#approach-16)
+  - [**Leetcode 1975** \[Max Matrix Sum\] 3⭐](#leetcode-1975-max-matrix-sum-3)
+    - [Approach](#approach-17)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -338,3 +340,18 @@
    - `Time` -> *O(n)*: for exteranl foor loop * *O(√nums[i])*: for each element to find it's divisor
    - `Space` -> *O(1)*
 6. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1975** [Max Matrix Sum] 3⭐
+- **Date** -> 05/01/2026
+- **Link** -> https://leetcode.com/problems/maximum-matrix-sum/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We want maximum sum from the matrix and if there exist and pair of elemnts -ve we can change them to +ve my multiplying -1
+2. The key observation is if there are odd -ve elements we can flip them all there remains one -ve element
+3. Think not to how you will convert and the pettern, by what not means we would end up converting all the elements to +ve if even count or left only the smallest element as the -ve element to have the maximum sum
+4. We can pass the negative elements to further as per our need, we will maintain minVal (to track smallest element), sum (to store the sumation), negCount(to count the negative elements)
+5. If there are even count of -ve then sum will be the final answer, if there are odd count the ans will sum - 2*minVal (as we will pass the negative to the smallest element)
+6. Complexity:
+   - `Time` -> *o(n * m)*: to traverse whole matrix
+   - `Space` -> *O(1)*
+7. [Table Of Content](#table-of-content) 
