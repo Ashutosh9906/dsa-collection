@@ -42,6 +42,8 @@
     - [Approach](#approach-16)
   - [**Leetcode 1975** \[Max Matrix Sum\] 3⭐](#leetcode-1975-max-matrix-sum-3)
     - [Approach](#approach-17)
+  - [**Leetcode 1161** \[Maximum Level Sum of a Binary Tree\] 3⭐](#leetcode-1161-maximum-level-sum-of-a-binary-tree-3)
+    - [Approach](#approach-18)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -354,4 +356,19 @@
 6. Complexity:
    - `Time` -> *o(n * m)*: to traverse whole matrix
    - `Space` -> *O(1)*
+7. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1161** [Maximum Level Sum of a Binary Tree] 3⭐
+- **Date** -> 06/01/2026
+- **Link** -> https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/description/
+- **Difficluty** -> MEDIUM
+### Approach
+1. We use BFS to solve the problem as we need min level to have max sum among all the element
+2. We use queue to store the node pointer, level = 0, maxSum = INT_MIN to sotre the max sum, push the root into the queue, initialize an while loop which will iterate until queue is empty
+3. Declare an variable sum, inside the while loop initialize an for which will iterate 0 -> q.size()
+4. Store the q.front() is an temp cariable node, if there exist node->left and node->right push them into the stack in the sequence first left then right
+5. At up the node->val into the sum, after the all the ireration of the for loop if the sum > maxSum then change ans = level, and maxSum = sum, dispite of the sum increment the level pointer
+6. Complexity:
+   - `Time` -> *O(n)*: for exteranl while loop
+   - `Space` -> *O(n)*: queue space to store the node pointers
 7. [Table Of Content](#table-of-content) 
