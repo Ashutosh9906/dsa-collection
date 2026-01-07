@@ -44,6 +44,8 @@
     - [Approach](#approach-17)
   - [**Leetcode 1161** \[Maximum Level Sum of a Binary Tree\] 3⭐](#leetcode-1161-maximum-level-sum-of-a-binary-tree-3)
     - [Approach](#approach-18)
+  - [**Leetcode 1339** \[Maximum Product of Splitted Binary Tree\] 3⭐](#leetcode-1339-maximum-product-of-splitted-binary-tree-3)
+    - [Approach](#approach-19)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -371,4 +373,19 @@
 6. Complexity:
    - `Time` -> *O(n)*: for exteranl while loop
    - `Space` -> *O(n)*: queue space to store the node pointers
+7. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1339** [Maximum Product of Splitted Binary Tree] 3⭐
+- **Date** -> 07/01/2026
+- **Link** -> https://leetcode.com/problems/maximum-product-of-splitted-binary-tree/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. At the very beginning we get the overAll sum of the root node using any one of DFS approach using recursion, all the main logic is inside maxProduct function
+2. We pass the root, totalSum of root, and ans variable 0 to the function maxProduct
+3. The recursion call will end when the node is NULL, else we make recursive call to get the sum of the left and right node
+4. After we sum all the values subSum = sum of right + sum of left + node->val, this will give the sum of that specific subNode 
+5. So we calculate and get the maxProduct using `best = max(best, subSum * (totalSum - subSum));`, at the return the subSum, best will be the final answer 
+6. Complexity:
+   - `Time` -> *O(n)*: to get the sum of the all node of root + *O(n)*: used to calculate teh sum of each subArray using postOrder
+   - `Space` -> *O(n)*: stack space for recursion call
 7. [Table Of Content](#table-of-content) 
