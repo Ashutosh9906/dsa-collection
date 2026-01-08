@@ -7,6 +7,8 @@
     - [Approach](#approach)
   - [2. Max Consecutive Ones III 3⭐](#2-max-consecutive-ones-iii-3)
     - [Approach](#approach-1)
+  - [3. Fruit into Basket 4⭐](#3-fruit-into-basket-4)
+    - [Approach](#approach-2)
 
 ## 1. Longest Substring Without Repeating Characters 4⭐
 - **Link** -> https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
@@ -33,3 +35,17 @@
     - `Time` -> *O(n)*: to iterate through arr
     - `Space` -> *O(1)*
 6. [To Table Of Content](#table-of-content)
+
+## 3. Fruit into Basket 4⭐
+- **Link** -> https://leetcode.com/problems/fruit-into-baskets/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. Same approach as above, we will use unordered_map to track fruits and two pointers, iterate the end pointer util less than arr.size()
+2. Increment the value at fruit by 1 mp[arr[end]]++
+3. If the size of map exceeds 2 will decrement the freq of the start mp[arr[start]]--
+4. If at any moment the freq of the start became 0 remove it fromt the map mp.erase(arr[start])
+5. While altering the answer for maxFruit always check whether map have less than or equal to 2 elements then only update the answer
+6. Complexity:
+    `Time` -> *O(n)*: for the main outer loop
+    `Space` -> *O(3)*: constant map size at max 3 elemets
+7. [To Table Of Content](#table-of-content)

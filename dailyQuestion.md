@@ -46,6 +46,8 @@
     - [Approach](#approach-18)
   - [**Leetcode 1339** \[Maximum Product of Splitted Binary Tree\] 3⭐](#leetcode-1339-maximum-product-of-splitted-binary-tree-3)
     - [Approach](#approach-19)
+  - [**Leetcode 1458** \[Max Dot Product of Two Subsequences\] 1⭐](#leetcode-1458-max-dot-product-of-two-subsequences-1)
+    - [Approach](#approach-20)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -389,3 +391,23 @@
    - `Time` -> *O(n)*: to get the sum of the all node of root + *O(n)*: used to calculate teh sum of each subArray using postOrder
    - `Space` -> *O(n)*: stack space for recursion call
 7. [Table Of Content](#table-of-content) 
+
+## **Leetcode 1458** [Max Dot Product of Two Subsequences] 1⭐
+- **Date** -> 08/01/2026
+- **Link** -> https://leetcode.com/problems/max-dot-product-of-two-subsequences/description/
+- **Difficulty** -> HARD
+### Approach
+> Hard to implement for intuition refer -> [intitution/approach](https://leetcode.com/problems/max-dot-product-of-two-subsequences/solutions/7476663/didnt-understand-youll-get-it-now-by-goh-shvz/?envType=daily-question&envId=2026-01-08)
+1. As it needs sub sequence the choice is ours whether to take or not take taht specific element 
+2. We initialize and dp of size n X m initialized to -1 to avoid re computation for same i and j, we use recursion to try all the sub sequence
+3. The base will be if any one of i or j reaches the min size of both the array
+4. If the i and j are already pre computed (dp[i][j] != -1) in an early camputation return dp[i][j]
+5. We take three cases to get the max
+   1. `take` -> means take both the element i and j and call the next i and j by i+1 and j+1 (**a[i] * b[j] + max(0, solve(dp, i+1, j+1, a, b));**)
+   2. `skipi` -> we don't take the i and skip to the next element (**solve(dp, i+1, j, a, b);**)
+   3. `skipj` -> we don't take the j and skip to the next element (**solve(dp, i, j+1, a, b);**)
+6. At the end we will return the max value among the above three, and also store it in the dp array at dp[i][j]
+7. Complexity:
+   - `Time` -> *O(n * m)*: to touch each elements and try all sub sequence
+   - `Space` -> *O(n*m)*: to store the dp value + *O(min(n, m))*: recursive stack space
+8. [Table Of Content](#table-of-content) 
