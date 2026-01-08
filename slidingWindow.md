@@ -9,6 +9,8 @@
     - [Approach](#approach-1)
   - [3. Fruit into Basket 4⭐](#3-fruit-into-basket-4)
     - [Approach](#approach-2)
+  - [5. Binary Subarrays With Sum 3⭐](#5-binary-subarrays-with-sum-3)
+    - [Approach](#approach-3)
 
 ## 1. Longest Substring Without Repeating Characters 4⭐
 - **Link** -> https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
@@ -49,3 +51,17 @@
     `Time` -> *O(n)*: for the main outer loop
     `Space` -> *O(3)*: constant map size at max 3 elemets
 7. [To Table Of Content](#table-of-content)
+
+## 5. Binary Subarrays With Sum 3⭐
+- **Link** -> https://leetcode.com/problems/binary-subarrays-with-sum/description/
+- **Difficulty** -> HARD
+### Approach
+> The optimal solution for above question is same as prefix sum question, but as externally mentioned the array will only contanin 1s and 0s then there is an scope of improvement for space complexity 
+1. We will sove using a bit different compared to above solution, we use variables like start, end, sum, count = 0 fo sliding window
+2. At the very start we add the element to the sum, if the sum is greater the goal then remove the arr[start] from the sum and move the start pointer
+3. If the sum <= to the goal then add the len (end - start + 1) to the count variable
+4. If we do this for goal and goal-1 there difference wll give the required answer, just an edge case if the goal < 0 return 0
+5. Complexity:
+  - `Time` -> *O(4n)*: 2n required of one function, n for external while loop and n for interanl while to move start pointer
+  - `Space` -> *O(1)*
+6. [To Table Of Content](#table-of-content)
