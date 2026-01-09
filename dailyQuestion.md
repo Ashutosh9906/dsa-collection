@@ -48,6 +48,8 @@
     - [Approach](#approach-19)
   - [**Leetcode 1458** \[Max Dot Product of Two Subsequences\] 1⭐](#leetcode-1458-max-dot-product-of-two-subsequences-1)
     - [Approach](#approach-20)
+  - [**Leetcode 865 \& Leetcode 1123** \[Smallest Subtree with all the Deepest Nodes\] 2⭐](#leetcode-865--leetcode-1123-smallest-subtree-with-all-the-deepest-nodes-2)
+    - [Approach](#approach-21)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -411,3 +413,21 @@
    - `Time` -> *O(n * m)*: to touch each elements and try all sub sequence
    - `Space` -> *O(n*m)*: to store the dp value + *O(min(n, m))*: recursive stack space
 8. [Table Of Content](#table-of-content) 
+
+## **Leetcode 865 & Leetcode 1123** [Smallest Subtree with all the Deepest Nodes] 2⭐
+- **Link I** -> https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/description/
+- **Link II** -> https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We need to track the node itself and it's depth at the same time, we will be using pair of TreeNode*(to store the node pointer) and int(to store it's depth)
+2. We will use recursion the base condition will be if the node is NULL then return and pair {nullptr, 0}
+3. Call both the side of the current node and store them in some temp variables named left and right
+4. As we return an pair left.second will be the depth and left.first will be the node pointer, following are the required conditions
+   - `left.second == right.second`: if the depth is same then the parent is the answer return {node, left.second+1}
+   - `left.second > right.second`: means node left has more depth then right so return {left.first, left.second+1}
+   - `left.second < right.second`: means node right has more depth then left so return {right.first, right.second+1}
+5. Call the function in the main function and return it's first as the asnwer
+6. Complexity:
+   - `Time` -> *O(n)*: to touch each node and the depth of the bin tree in worst case
+   - `Space` -> *O(n)*: recursive stack space
+7. [Table Of Content](#table-of-content) 
