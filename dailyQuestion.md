@@ -50,6 +50,12 @@
     - [Approach](#approach-20)
   - [**Leetcode 865 \& Leetcode 1123** \[Smallest Subtree with all the Deepest Nodes\] 2⭐](#leetcode-865--leetcode-1123-smallest-subtree-with-all-the-deepest-nodes-2)
     - [Approach](#approach-21)
+  - [**Leetcode 712** 2⭐](#leetcode-712-2)
+    - [Approach](#approach-22)
+  - [**Leetcode 85** \[Maximum Rectangle\] 2⭐](#leetcode-85-maximum-rectangle-2)
+    - [Approach](#approach-23)
+  - [**Leetcode 1266** \[Minimum Time Visiting All Points\] 4⭐](#leetcode-1266-minimum-time-visiting-all-points-4)
+    - [Approach](#approach-24)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -415,6 +421,7 @@
 8. [Table Of Content](#table-of-content) 
 
 ## **Leetcode 865 & Leetcode 1123** [Smallest Subtree with all the Deepest Nodes] 2⭐
+- **Date** -> 09/01/2026
 - **Link I** -> https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/description/
 - **Link II** -> https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/description/
 - **Difficulty** -> MEDIUM
@@ -431,3 +438,52 @@
    - `Time` -> *O(n)*: to touch each node and the depth of the bin tree in worst case
    - `Space` -> *O(n)*: recursive stack space
 7. [Table Of Content](#table-of-content) 
+
+## **Leetcode 712** 2⭐
+- **Date** -> 10/01/2026
+- **Link** -> https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We have remove some charachters from both the strings so that at the end both the strings will be similar and the same time the ASCII sum of the char removed should be minimum
+2. We will be using recursion to try out all the possible combinations, we will also maintain and dp array to reduce the number of calls if the combination is already visited, there will be two variables i and j from both string as pointer 
+3. The base will be simple if the both the pos reached the end of the string then return 0
+4. If at any moment i reaches the end and there are still some char in the 2nd string then we will there ASCII values to the answer, vice versa
+5. The decision to wether to take the char or not, which char is to be deleted will on following basis
+   - `if(dp[i][j])` -> means this specific combination is already visited no need to recompute
+   - `if(s1[i] == s2[j])` -> means currently both the char from each string are equal then no need to delete anything move i+1 and j+1
+   - `else` -> means they are different then we can either skip i or j, we will call both the recursive types and also add there respective ASCII values to the answer while calling, to get the least ASCII sum we will take min of both `dp[i][j] = min(solve(i+1, j, s1, s2, dp)+s1[i], solve(i, j+1, s1, s2, dp)+s2[j]);`
+6. Complexity:
+   - `Time` -> *O(n X m)*: to try all the options and combinations
+   - `Space` -> *O(n X m)*: for the dp array to store the result + *O(n + m)*: recursive stack space
+7. [Table Of Content](#table-of-content) 
+
+## **Leetcode 85** [Maximum Rectangle] 2⭐
+- **Date** -> 11/01/2026
+- **Link** -> https://leetcode.com/problems/maximal-rectangle/description/
+- **Prerequisite** -> https://leetcode.com/problems/subarray-sum-equals-k/description/
+- **Difficulty** -> HARD
+### Approach
+1. There is an prerequisite to this question, once revise it's concept and then start over this question
+2. This question is just same as `19. Largest Rectangle in Histogram` from stack and queue to find max area of histogram, just insted of array we have 2D matrix 
+3. We will traverse row by row generate an array which reperesent the bar of histogram and calculate further
+4. To optimize generating bars each time we will pre compute the bars by generating an new preSum array
+5. we traverse column wise and add the 1 and store at the current place in the preSum arrray, if at any place an '0' occurs change the sum = 0
+6. Again traverse through 0 -> n-1 at each iteration call the function largestHist and pass the row of the preSum as array of bars
+7. Take max at each time to get the Maximal rectangle, just look as the input array is of type `char`
+8. Complexity:
+     - `Time` -> *O(n * m)*: to pre compute the preSum + *O(n * 2m)*: n to traverese and 2m for largestHist function
+     - `Space` -> *O(n * m)*: to store the preSum array + *O(n)*: stack used in largestHist function
+9. [To Table of Content](#table-of-content)
+
+## **Leetcode 1266** [Minimum Time Visiting All Points] 4⭐
+- **Date** -> 12/01/2026
+- **Link** -> https://leetcode.com/problems/minimum-time-visiting-all-points/description/
+- **Difficulty** -> EASY
+### Approach
+1. We have to calculate the time to touch all the points in the given manner
+2. We can traverse by incrementing i and j until we reach the desired location that will be our brute force
+3. If we observed carefully the time needed to cover all the points will the max of difference between it's X and Y coordinates between the point an location i am standing at currently
+4. Complexity:
+   - `Time` -> *O(n)*: iterate through all the points
+   - `Space` -> *O(1)*
+5. 7. [Table Of Content](#table-of-content) 
