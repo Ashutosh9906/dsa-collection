@@ -9,8 +9,10 @@
     - [Approach](#approach-1)
   - [3. Fruit into Basket 4⭐](#3-fruit-into-basket-4)
     - [Approach](#approach-2)
-  - [5. Binary Subarrays With Sum 3⭐](#5-binary-subarrays-with-sum-3)
+  - [4. longest repeating character replacement 2⭐](#4-longest-repeating-character-replacement-2)
     - [Approach](#approach-3)
+  - [5. Binary Subarrays With Sum 3⭐](#5-binary-subarrays-with-sum-3)
+    - [Approach](#approach-4)
 
 ## 1. Longest Substring Without Repeating Characters 4⭐
 - **Link** -> https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
@@ -50,6 +52,24 @@
 6. Complexity:
     `Time` -> *O(n)*: for the main outer loop
     `Space` -> *O(3)*: constant map size at max 3 elemets
+7. [To Table Of Content](#table-of-content)
+
+## 4. longest repeating character replacement 2⭐
+- **Link** -> https://leetcode.com/problems/longest-repeating-character-replacement/description/
+- **Difficulty** -> HARD
+### Approach
+1. We will use sliding we window to compute the max len, we will maintain an hash array of size 26 to sotre the freq of each char, maxFreq to store the freq of an char and maxLen to store the ans
+2. We will use left and right pointers for computation and loop until right reaches arr.size()
+3. At the very star we will incrment the counter hash[arr[right] - 'A']++ and update the maxFreq as max(maxFreq, hash[arr[right] - 'A'])
+4. The number of char that can be changed will be the Len(right - left + 1) - maxFreq 
+  - `if(change > k)` -> then we can remove the char from the start moving left poiner in an while loop and also decrement in the hash array, we also have to compute the maxFreq which will need an for loop from 0 -> 26
+  - `if(change < k)` -> we will update the maxLen variable with max(maxLen, (left-right+1))
+5. There are some scope of optimization in the above approach as it takes *O(26 X (n + n))* time complexity
+  - Insted of an while loop to increment left pointer we will increment is once as we done in the previous problems
+  - Also we won't update the maxFreq variable each time as we move the left pointer, because we want an larger string length we have increment the size keeping the maxFreq stable 
+6. Complexity:
+  - `Time` -> *O(n)*: for external while loop 
+  - `Space` -> *O(26)*: for hash array to store the freq of char
 7. [To Table Of Content](#table-of-content)
 
 ## 5. Binary Subarrays With Sum 3⭐
