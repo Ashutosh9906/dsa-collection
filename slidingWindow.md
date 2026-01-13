@@ -17,6 +17,8 @@
     - [Approach](#approach-5)
   - [7. Number of Substrings Containing All Three Characters 3⭐](#7-number-of-substrings-containing-all-three-characters-3)
     - [Approach](#approach-6)
+  - [8. Maximum Points You Can Obtain from Cards 3⭐](#8-maximum-points-you-can-obtain-from-cards-3)
+    - [Approach](#approach-7)
 
 ## 1. Longest Substring Without Repeating Characters 4⭐
 - **Link** -> https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
@@ -119,3 +121,15 @@
   - `Time` -> *O(n)*: external for loop
   - `Space` -> *O(3)*: hash array of constant size 3
 7. [To Table Of Content](#table-of-content)
+
+## 8. Maximum Points You Can Obtain from Cards 3⭐
+- **Link** -> https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. First we will sumup k elements form the left side and store it in leftSum, assign maxSum as leftSum, and declare an rightSum variable
+2. Inside an anothre for from k-1 -> 0 we will substract i element from leftSum and maintain and right = n-1 pointer add the right element to rightSUm
+3. The maxSum = max(maxSum, leftSum+rightSum);
+4. Complexity:
+  - `Time` -> *O(2k)*: one for computing leftSum and one for removing left and adding from right
+  - `Space` -> *O(1)*
+5. [To Table Of Content](#table-of-content)
