@@ -11,8 +11,12 @@
     - [Approach](#approach-2)
   - [4. longest repeating character replacement 2⭐](#4-longest-repeating-character-replacement-2)
     - [Approach](#approach-3)
-  - [5. Binary Subarrays With Sum 3⭐](#5-binary-subarrays-with-sum-3)
+  - [5. Binary Subarrays With Sum 2⭐](#5-binary-subarrays-with-sum-2)
     - [Approach](#approach-4)
+  - [6. Count number of Nice Subarrays 4⭐](#6-count-number-of-nice-subarrays-4)
+    - [Approach](#approach-5)
+  - [7. Number of Substrings Containing All Three Characters 3⭐](#7-number-of-substrings-containing-all-three-characters-3)
+    - [Approach](#approach-6)
 
 ## 1. Longest Substring Without Repeating Characters 4⭐
 - **Link** -> https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
@@ -72,16 +76,46 @@
   - `Space` -> *O(26)*: for hash array to store the freq of char
 7. [To Table Of Content](#table-of-content)
 
-## 5. Binary Subarrays With Sum 3⭐
+## 5. Binary Subarrays With Sum 2⭐
 - **Link** -> https://leetcode.com/problems/binary-subarrays-with-sum/description/
 - **Difficulty** -> HARD
 ### Approach
 > The optimal solution for above question is same as prefix sum question, but as externally mentioned the array will only contanin 1s and 0s then there is an scope of improvement for space complexity 
 1. We will sove using a bit different compared to above solution, we use variables like start, end, sum, count = 0 fo sliding window
-2. At the very start we add the element to the sum, if the sum is greater the goal then remove the arr[start] from the sum and move the start pointer
-3. If the sum <= to the goal then add the len (end - start + 1) to the count variable
-4. If we do this for goal and goal-1 there difference wll give the required answer, just an edge case if the goal < 0 return 0
+2. We will think in an bit different way we will try for all the subArrays with sum <= goal
+  - Ex. [1 0 0 1 1 0]
+  - at fist sum will be 1, moving further sum will be same as num is 0 which means we come accross an such an element after adding it the sum does not change so the number of subArrays will be [1] and [1 0]
+  - Moving next sum still does not change so the number of sub array with sum <= goal will be like [1], [1 0], [1 0 0]
+  - So each time while sum <= goal we will add (left - right + 1) to the count, and if the sum exceeds the goal shorten it from the start
+  - Also there is an edge case so if the `goal is 0 then return 0`
+3. We change the count only when the sum <= k so that there is no need for the while loop to move left pointer
+4. So now if we simply do is `func(arr, goal) - func(arr, goal-1)` this will end up returning the all the subArray with sum = goal
 5. Complexity:
   - `Time` -> *O(4n)*: 2n required of one function, n for external while loop and n for interanl while to move start pointer
   - `Space` -> *O(1)*
 6. [To Table Of Content](#table-of-content)
+
+## 6. Count number of Nice Subarrays 4⭐
+- **Link** -> https://leetcode.com/problems/count-number-of-nice-subarrays/description/
+- **Difficulty** -> HARD
+### Approach
+1. Just same as apove by an little bit of observation we can consider the odd numbers be `1` and even numbers as `0`
+2. Then this question will be sonverted as the question above just while adding or substracting the sum mod it `sum += arr[end]%2` vice versa
+3. Complexity:
+  - `Time` -> *O(4n)*: 2n required of one function, n for external while loop and n for interanl while to move start pointer
+  - `Space` -> *O(1)*
+4. [To Table Of Content](#table-of-content)
+
+## 7. Number of Substrings Containing All Three Characters 3⭐
+- **Link** -> https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/description/
+- **Difficulty** -> HARD
+### Approach
+1. In this question we will apply sliding window but in an different way
+2. Ex. bbacba, think like if we are standing at b at pos 4 looking behind do we have all the char 
+3. We will store the there lastseen location in an hash array considering we are standing at b how many subarray can be formed acb, bacb, bbacb only behind it which will min({hash[0], hash[1], hash[2]}) + 1
+4. With such approach we will iterate through an for loop from i -> n, hash array of size 3 initialized as -1
+5. Each time we will update the lastSeen loc in the hash array, if all the elements are present != -1 then `count = count + 1 + min({hash[0], hash[1], hash[2]});`
+6. Complexity:
+  - `Time` -> *O(n)*: external for loop
+  - `Space` -> *O(3)*: hash array of constant size 3
+7. [To Table Of Content](#table-of-content)
