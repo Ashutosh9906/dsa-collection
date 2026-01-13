@@ -56,6 +56,8 @@
     - [Approach](#approach-23)
   - [**Leetcode 1266** \[Minimum Time Visiting All Points\] 4⭐](#leetcode-1266-minimum-time-visiting-all-points-4)
     - [Approach](#approach-24)
+  - [**Leetcode 3453** \[Seperate squares I\] 3⭐](#leetcode-3453-seperate-squares-i-3)
+    - [Approach](#approach-25)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -486,4 +488,23 @@
 4. Complexity:
    - `Time` -> *O(n)*: iterate through all the points
    - `Space` -> *O(1)*
-5. 7. [Table Of Content](#table-of-content) 
+5. [Table Of Content](#table-of-content) 
+
+## **Leetcode 3453** [Seperate squares I] 3⭐
+- **Date** -> 13/01/2026
+- **Link** -> https://leetcode.com/problems/separate-squares-i/description/
+- **Difficulty** -> MEDIUM
+### Approach
+> lookout while declaring the variables datatypes declare them as double for getting preciously correct answer
+1. We want the y co-ordinate at which the total area above the line and below will be equal considering all the overlap of the boxes
+2. At the very start we will calculating the totalArea of all the boxes and in the same for loop we will calculate the minY the lowest y-axis and maxY as highest y-axis
+3. We will use binary search on aswers low = minY and high = maxY, mid will be the the y co-ordinate where we will cut the half
+> The while loop will run until `high-low > 1e-6`
+4. After calculating the mid we will iterate through an for loop to calculate the area below the mid line
+   - `if(mid > y && mid >= y+l)` -> then area will be l*l
+   - `if(mid > y && mid < y+l)` -> then area will (mid-y)*l
+5. if the belowArea is smaller then totalArea/2 then `low=mid` else `high=mid`
+6. Complexity:
+   - `Time` -> *O(n)*: to calculate the totalArea and minY, maxY + *O(n x log(precision)) -> o(n x 60)*: for the binary search and interanl for loop to calculate belowArea
+   - `Space` -> *O(1)*
+6. [Table Of Content](#table-of-content) 
