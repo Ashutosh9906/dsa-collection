@@ -58,6 +58,10 @@
     - [Approach](#approach-24)
   - [**Leetcode 3453** \[Seperate squares I\] 3⭐](#leetcode-3453-seperate-squares-i-3)
     - [Approach](#approach-25)
+  - [**Leetcode 3554** \[Seperate square II\] 0⭐](#leetcode-3554-seperate-square-ii-0)
+    - [Approach](#approach-26)
+  - [**2943** \[Maximize Area of Square Hole in Grid\] 4⭐](#2943-maximize-area-of-square-hole-in-grid-4)
+    - [Approach](#approach-27)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -507,4 +511,26 @@
 6. Complexity:
    - `Time` -> *O(n)*: to calculate the totalArea and minY, maxY + *O(n x log(precision)) -> o(n x 60)*: for the binary search and interanl for loop to calculate belowArea
    - `Space` -> *O(1)*
-6. [Table Of Content](#table-of-content) 
+7. [Table Of Content](#table-of-content) 
+
+## **Leetcode 3554** [Seperate square II] 0⭐
+- **Date** -> 14/01/2026
+- **Link** -> https://leetcode.com/problems/separate-squares-ii/description/
+- **Difficulty** -> HARD
+### Approach
+1. Unable to solve it requires `Line Sweep Alorithm` with `Segment Tree` to get the Answer
+2. [Table Of Content](#table-of-content) 
+
+## **2943** [Maximize Area of Square Hole in Grid] 4⭐
+- **Date** -> 15/01/2026
+- **Link** -> https://leetcode.com/problems/maximize-area-of-square-hole-in-grid/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. If we think deeply the max square will min of max difference of both the horizontal and vertical bars
+2. If we find out the max diff between all the fixed bars (can't removed) from hBars && vBars ans will me ^2 of min
+3. To accomplish that we can find out the longest sequnce of consecutive integer in hBars and vBars
+4. We will interate through and for loop in hBars from 0 -> size initialize temp variable as j = 1, inside it we iterate through an while loop until j+1 < hBars.size() && hBars[j]+1 == hBars[j+1], the length will j-i+1 we will find out the max of it and vice versa with vBars
+5. Complexity:
+   - `Time` -> *O(2 X nlogn)*: sort both hBars and vBars vector + *O(2 X n)*: to get the longst sequence with consecutive integer
+   - `Space` -> *O(logn)*: including the sort stack space
+6. [Table Of Content](#table-of-content)   
