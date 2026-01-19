@@ -62,6 +62,8 @@
     - [Approach](#approach-26)
   - [**2943** \[Maximize Area of Square Hole in Grid\] 4⭐](#2943-maximize-area-of-square-hole-in-grid-4)
     - [Approach](#approach-27)
+  - [**1291** \[Maximum Side Length of a Square with Sum Less than or Equal to Threshold\] 3⭐](#1291-maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold-3)
+    - [Approach](#approach-28)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -534,3 +536,21 @@
    - `Time` -> *O(2 X nlogn)*: sort both hBars and vBars vector + *O(2 X n)*: to get the longst sequence with consecutive integer
    - `Space` -> *O(logn)*: including the sort stack space
 6. [Table Of Content](#table-of-content)   
+
+## **1291** [Maximum Side Length of a Square with Sum Less than or Equal to Threshold] 3⭐
+- **Date** -> 19/01/2026
+- **Link** -> https://leetcode.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. The absolute brute force approach will be try out all the squares calculate the sum and check whether they pass all the constraints
+2. To optimize it we can think like, if the k size of square is allowed then may less than k size of aaray is also valid if not then the size will be greater then k
+3. Observe it a bit we will find out that we can apply binary search on answer where we will iterate for k as size of square
+4. Also the each time we calculate the square is taking n<sup>2</sup> time complexity to optimize it we can use 2-D prefix sum
+5. We will store the sum from (0, 0) -> (n, m) of each reactange possible
+![intuition and approach](images/daily19-01.png)
+6. To calculating sum observe the above image we can calculate the the sum of square within *O(1)* using prefix sum, sum will as per the formula like `pref[i+k][j+k] - pref[i][j+k] - pref[i+k][j] + pref[i][j]`
+7. Complexity:
+   - `Time` -> *O(2(n X m))*: calculate the prefix sum + (*(log(min(n, m)))*: binary search on k * *O(n X m)*: for isValid() function )
+   - `Time` -> *O(n X m X log(min(n, m)))*
+   - `Space` -> *O(n X m)*
+8. [Table Of Content](#table-of-content) 
