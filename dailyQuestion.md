@@ -64,6 +64,8 @@
     - [Approach](#approach-27)
   - [**1291** \[Maximum Side Length of a Square with Sum Less than or Equal to Threshold\] 3⭐](#1291-maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold-3)
     - [Approach](#approach-28)
+  - [**3315** \[Construct the Minimum Bitwise Array II\] 2⭐](#3315-construct-the-minimum-bitwise-array-ii-2)
+    - [Approach](#approach-29)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -554,3 +556,20 @@
    - `Time` -> *O(n X m X log(min(n, m)))*
    - `Space` -> *O(n X m)*
 8. [Table Of Content](#table-of-content) 
+
+## **3315** [Construct the Minimum Bitwise Array II] 2⭐
+- **Date** -> 20/01/2026
+- **Link** -> https://leetcode.com/problems/construct-the-minimum-bitwise-array-ii/description/
+- **Difficuty** -> MEDIUM
+### Approach
+> [Approach/Intution](https://www.youtube.com/watch?v=nyoXJv_rXEs) -> checkout this video for the optimal solution
+1. The brute force approach will be using an nested for loop and trying out all the numbers from 1 -> arr[i], gives tle
+2. If we think about what is ans | ans+1 what is happening changes are made until we encounter the first 0 futher there is no change in the number
+3. So we have to work all the leadin 1s until we wncounter 0 we have to minimize it the ans will be left shift of it
+4. Ex. -> 
+   - 13 (1011): we will work with 11 to minimize them to get answer will be 01
+   - 1001 & 1010 will be 1011(13)
+5. Complexity:
+   - `Time` -> *O(n)*: for exteranl for loop X *O(log(max(arr[i])))*: interanl for loop to get all the leading 1s
+   - `Space` -> *O(n)*: to store the ans
+6. [Table Of Content](#table-of-content) 
