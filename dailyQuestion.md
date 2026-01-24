@@ -68,6 +68,8 @@
     - [Approach](#approach-29)
   - [**3314** \[Construct the Minimum Bitwise Array I\] 2⭐](#3314-construct-the-minimum-bitwise-array-i-2-1)
     - [Approach](#approach-30)
+  - [**3507** \[Minimum Pair Removal to Sort Array I\] 4⭐](#3507-minimum-pair-removal-to-sort-array-i-4)
+    - [Approach](#approach-31)
 
 ## **Leetcode 3433** [ Count Mentions Per User ]
 - **Date** -> 12/12/2025
@@ -583,3 +585,15 @@
 ### Approach
 1. Everything is same as above question, this question get's tle for brute force approach in above question
 2. [Table Of Content](#table-of-content)
+
+## **3507** [Minimum Pair Removal to Sort Array I] 4⭐
+- **Date** -> 22/01/2026
+- **Link** -> https://leetcode.com/problems/minimum-pair-removal-to-sort-array-i/description/
+- **Difficulty** -> EASY
+### Approach
+1. Just write the code as per the requirement given in the problem statement not to optimize ot anything
+2. Just an simple optimization in code insted of forming an new vector to just alter the orignal we can do `erase(arr.begin() + (idx + 1))`
+3. Complexit
+   - `Time` -> *O(n)*: to find out the minSum pair X *O(logn)*: to erase the idx+1 element from the orignal array
+   - `Space` -> *O(1)*
+4. [Table Of Content](#table-of-content)
