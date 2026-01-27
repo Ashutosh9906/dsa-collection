@@ -21,6 +21,10 @@
     - [Approach](#approach-7)
   - [9. Task Scheduler 2⭐](#9-task-scheduler-2)
     - [Approach](#approach-8)
+  - [10. Design Tweeter 3⭐](#10-design-tweeter-3)
+    - [Approach](#approach-9)
+  - [11. Maximum Sum Combination 3⭐](#11-maximum-sum-combination-3)
+    - [Approach](#approach-10)
 
 ## 1. Min heap implementation 4⭐
 - **Link** -> https://www.geeksforgeeks.org/problems/min-heap-implementation/1
@@ -140,3 +144,32 @@
   - `Time` -> *O(n)*: to calculate the freq + *O(n)*: to push all tasks into the heao + *O(n+total_intervals)*: for task scheduling
   - `Space` -> *O(26)*: for all the space used (vector, priority_queue, queue)
 7. [To Table Of Content](#table-of-content) 
+
+## 10. Design Tweeter 3⭐
+- **Link** -> https://leetcode.com/problems/design-twitter/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will use two unordered_map, one for followers and one for tweets. follows map will be of data type int and unordered_set and tweet will be of int and vector and we mantain an timer
+2. We will push the tweet at tweet[usertId] into the vector and increment the timer
+3. while adding follow we will add at follows[followeerId], same use erase to remove it
+4. While getting the feed we will use the priority_queue of data type int for time and int for tweet, first we will get the vector of the follower and push the last 10 tweet into the it same for the other followeeId
+5. The priority_queue will sort the elements by the time and we will push the top 10 element into the ans vector as the user feed
+6. Complexity:
+  - `Time` -> *O(1)*: postTweet, follow, unfollow + *O(flogf)*: for getNewsFeed where f is the number of followers
+  - `Space` -> *O(t)*: total tweets + *O(e)*: total follow edges (e) + *O(f)*: followers tweet f * 10
+7. [To Table Of Content](#table-of-content) 
+
+## 11. Maximum Sum Combination 3⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/maximum-sum-combination/1
+- **Difficulty** -> HARD
+### Approach
+1. Think of what could be the largest sum you can produce, it would be the largest element from both the array
+2. To move furhter which one to take and which one to not take, we will take both the diagonal like i-1, j and i, j-1 and move forward
+3. The edge case could be like a -> 10, 1, 1 and b -> 6, 6, 6 we would be doing small changes
+4. We will use heap like `priority_queue<pair<int, pair<int, int>>> pq` for storing the sum and it's i and j pos as well
+5. So we will get the largest element all the time if we push 6 and 16 next time i and j will be the pos of 16
+6. To avoid the duplicates to be pushed into the answer we also maintain the `set<pair<int, int>> visited`
+7. Complexity:
+  - `Time` -> *O(nlogn)*: for sorting both the array + *O(klogk)*: while loop for k times and push operation heap takes log
+  - `Space` -> *O(k)*: heap sotres at most k elements same for visited array and ans array
+8. [To Table Of Content](#table-of-content) 
