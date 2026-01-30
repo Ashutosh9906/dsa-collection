@@ -25,6 +25,8 @@
     - [Approach](#approach-9)
   - [11. Maximum Sum Combination 3⭐](#11-maximum-sum-combination-3)
     - [Approach](#approach-10)
+  - [12. Find median from data stream](#12-find-median-from-data-stream)
+    - [Approach](#approach-11)
 
 ## 1. Min heap implementation 4⭐
 - **Link** -> https://www.geeksforgeeks.org/problems/min-heap-implementation/1
@@ -141,8 +143,8 @@
 4. At first we will pop the element from the heap if is's freq is greater than 0 than we could push it into the queue qhile decresing the freq by one with the time + k at which we can use it again
 5. In the queue if the the element in the front have the time_at_availabele as current time than push it's frequenct into the max heap and pop the element from the queue
 6. Complexity:
-  - `Time` -> *O(n)*: to calculate the freq + *O(n)*: to push all tasks into the heao + *O(n+total_intervals)*: for task scheduling
-  - `Space` -> *O(26)*: for all the space used (vector, priority_queue, queue)
+     - `Time` -> *O(n)*: to calculate the freq + *O(n)*: to push all tasks into the heao + *O(n+total_intervals)*: for task scheduling
+     - `Space` -> *O(26)*: for all the space used (vector, priority_queue, queue)
 7. [To Table Of Content](#table-of-content) 
 
 ## 10. Design Tweeter 3⭐
@@ -155,8 +157,8 @@
 4. While getting the feed we will use the priority_queue of data type int for time and int for tweet, first we will get the vector of the follower and push the last 10 tweet into the it same for the other followeeId
 5. The priority_queue will sort the elements by the time and we will push the top 10 element into the ans vector as the user feed
 6. Complexity:
-  - `Time` -> *O(1)*: postTweet, follow, unfollow + *O(flogf)*: for getNewsFeed where f is the number of followers
-  - `Space` -> *O(t)*: total tweets + *O(e)*: total follow edges (e) + *O(f)*: followers tweet f * 10
+     - `Time` -> *O(1)*: postTweet, follow, unfollow + *O(flogf)*: for getNewsFeed where f is the number of followers
+     - `Space` -> *O(t)*: total tweets + *O(e)*: total follow edges (e) + *O(f)*: followers tweet f * 10
 7. [To Table Of Content](#table-of-content) 
 
 ## 11. Maximum Sum Combination 3⭐
@@ -170,6 +172,19 @@
 5. So we will get the largest element all the time if we push 6 and 16 next time i and j will be the pos of 16
 6. To avoid the duplicates to be pushed into the answer we also maintain the `set<pair<int, int>> visited`
 7. Complexity:
-  - `Time` -> *O(nlogn)*: for sorting both the array + *O(klogk)*: while loop for k times and push operation heap takes log
-  - `Space` -> *O(k)*: heap sotres at most k elements same for visited array and ans array
+     - `Time` -> *O(nlogn)*: for sorting both the array + *O(klogk)*: while loop for k times and push operation heap takes log
+     - `Space` -> *O(k)*: heap sotres at most k elements same for visited array and ans array
 8. [To Table Of Content](#table-of-content) 
+
+## 12. Find median from data stream
+- **Link** -> https://leetcode.com/problems/find-median-from-data-stream/description/
+- **Difficulty** -> HARD
+### Approach
+1. As we read the problem statement it seems easy but the main difficulty to avoid use sort function and optimise the time
+2. We will use the minHeap and maxHeap, let x be an number we will push all the number lesser than x in maxHeap and larger minHeap
+3. As we do minHeap.top() it will give the smallest element larger half and maxHeap.top() will give the largest elemtnt from the smaller half
+4. If the total size is odd we will return the top of the heap having larger size by one, else return the minHeap.top() + maxHeap.top() / 2.0
+5. Complexity:
+     - `Time` -> *O(logn)*: to push the element into the heap + *O(1)*: to find the median
+     - `Space` -> *O(n)*: heap size
+6. [To Table Of Content](#table-of-content) 
