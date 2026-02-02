@@ -48,4 +48,7 @@
     - If the high multiset is not empty and low.size() less than k-1 than add the high.begin() (lowest) to the low multiset
     - Else if the size of low more than k-1 than add the low.rbegin() (highest) to the hgih multiset
 10. In the main function we will iterate form 1 -> n at the very begining we insert the element into low, if the i-dist-1 exceed's 0 than delte the i-dist-1 element, if the size of low is same as k-1 then record the answer
-11. [Table of Content](#table-of-content)
+11. Complexity:
+    - `Time` -> *O(log(dist))*: for Insert(), Delete(), reBalance() -> *O(nlog(n))*
+    - `Space` -> *O(n)*
+12. [Table of Content](#table-of-content)
