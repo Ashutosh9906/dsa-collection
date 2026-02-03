@@ -7,6 +7,8 @@
   - [Approach](#approach)
   - [**Leetcode 3013** \[Divide an Array Into Subarrays With Minimum Cost II\] 2⭐](#leetcode-3013-divide-an-array-into-subarrays-with-minimum-cost-ii-2)
     - [Approach](#approach-1)
+  - [**Leetcode 3637** \[Trionic Array I\] 4⭐](#leetcode-3637-trionic-array-i-4)
+  - [Approach](#approach-2)
 
 ## **Leetcode 3010** [ Divide an Array Into Subarrays With Minimum Cost I ] 4⭐
 - **Date** -> 01/02/2026
@@ -52,3 +54,18 @@
     - `Time` -> *O(log(dist))*: for Insert(), Delete(), reBalance() -> *O(nlog(n))*
     - `Space` -> *O(n)*
 12. [Table of Content](#table-of-content)
+
+## **Leetcode 3637** [Trionic Array I] 4⭐
+- **Date** -> 03/02/2026
+- **Link** -> https://leetcode.com/problems/trionic-array-i/description/
+- **Difficulty** -> EASY
+## Approach
+1. first part of sequence must be strictly increasing, second part must stricty decreasing, third part must be strictly increasing, if there are any similar pair thay will break the sequence 
+2. Through the observation one point is clear there should occur 2 break points in the sequence
+3. we will iterate till we get the first break through at loc1, then we get the second breakthrough at loc2 , at the very beginning initiate them as -1 if they are unchanged straight away return false
+4. As we get the loc of two break point we will check that each part 0 -> loc1 + loc1 -> loc2 + loc2 -> n are strictly following the monotonicity
+5. At the end if all the parts are valid we get 2 break point then the sequence is Trionic and return true
+6. Complexity:
+    - `Time` -> *O(n)*: to find two break points + *O(n)*: to re verify the parts -> *O(n)*
+    - `Space` -> *O(1)*
+7. [Table of Content](#table-of-content)
