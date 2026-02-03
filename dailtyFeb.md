@@ -4,17 +4,17 @@
 - [February Daily Questions](#february-daily-questions)
   - [Table of Content](#table-of-content)
   - [**Leetcode 3010** \[ Divide an Array Into Subarrays With Minimum Cost I \] 4⭐](#leetcode-3010--divide-an-array-into-subarrays-with-minimum-cost-i--4)
-  - [Approach](#approach)
+    - [Approach](#approach)
   - [**Leetcode 3013** \[Divide an Array Into Subarrays With Minimum Cost II\] 2⭐](#leetcode-3013-divide-an-array-into-subarrays-with-minimum-cost-ii-2)
     - [Approach](#approach-1)
   - [**Leetcode 3637** \[Trionic Array I\] 4⭐](#leetcode-3637-trionic-array-i-4)
-  - [Approach](#approach-2)
+    - [Approach](#approach-2)
 
 ## **Leetcode 3010** [ Divide an Array Into Subarrays With Minimum Cost I ] 4⭐
 - **Date** -> 01/02/2026
 - **Link** -> https://leetcode.com/problems/divide-an-array-into-subarrays-with-minimum-cost-i/description/
 - **Difficulty** -> EASY
-## Approach
+### Approach
 1. We want to delete the array into three sub-arrays and also include all the elements from the array
 2. Thinking of which the first sub-array will always start from the pos 0 we have to decide the second and the third elements stating pos
 3. To minimize the cost we will the two minimum elements pos min1 and min2, followed as min1 will always be lesser than the min2
@@ -59,7 +59,7 @@
 - **Date** -> 03/02/2026
 - **Link** -> https://leetcode.com/problems/trionic-array-i/description/
 - **Difficulty** -> EASY
-## Approach
+### Approach
 1. first part of sequence must be strictly increasing, second part must stricty decreasing, third part must be strictly increasing, if there are any similar pair thay will break the sequence 
 2. Through the observation one point is clear there should occur 2 break points in the sequence
 3. we will iterate till we get the first break through at loc1, then we get the second breakthrough at loc2 , at the very beginning initiate them as -1 if they are unchanged straight away return false
