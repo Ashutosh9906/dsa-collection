@@ -11,6 +11,10 @@
     - [Approach](#approach-2)
   - [4. Lemonade change 4⭐](#4-lemonade-change-4)
     - [Approach](#approach-3)
+  - [5. Valid Paranthesis Checker 3⭐](#5-valid-paranthesis-checker-3)
+    - [Approach](#approach-4)
+  - [6. N meeting in one room 3⭐](#6-n-meeting-in-one-room-3)
+    - [Approach](#approach-5)
 
 ## 1. Assign Cookies 4⭐
 - **Link** -> https://leetcode.com/problems/assign-cookies/description/
@@ -60,3 +64,31 @@
     - `Time` -> *O(n)*: to exchange bills
     - `Space` -> *O(1)*
 5. [Table of Content](#table-of-content)
+
+## 5. Valid Paranthesis Checker 3⭐
+- **Link** -> https://leetcode.com/problems/valid-parenthesis-string/description/
+- **Difficulty** -> HARD
+### Approach
+1. This is a bit same as check parenthesis but with little twist of *, there is an * is between which can be used as '(', ')' or ' _'
+2. Ex if the string -> "(*))", here * will act as '(' and the the given string is an valid parenthesis
+3. We will use something as range for solving the above problem low will store the minimum of the range and high will store the maximum
+4. If the char is '(' then increment both the pointer else ')' then decrement both the pointer
+5. The catch is with '*' we can have three options -1, 0, 1 (-1: closing, 0: nothing, 1: opening), hence low -= 1 and high += 1 
+6. If at any moment high which stores negative then straight away return false as we can't repare the string using *, if at any moment low < 0 then reDefine is as 0
+7. Complexity:
+    - `Time` -> *O(n)*: to traverse through each char
+    - `Space` -> *O(1)*
+8. [Table of Content](#table-of-content)
+
+## 6. N meeting in one room 3⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. We want to conducct maximum number of meeting in one room
+2. If we think greedly we will conduct all the meeting have time duration very low, that will increase the count
+3. We will sort the pair based on the end time of the meeting using minHeap
+4. We will take the first meeting at by iterating we will count the number of meeting can be held
+5. Complexity:
+    - `Time` -> *O(nlogn)*: to push the end ans start timing of the meeting + *O(n)*: to iterate until heap is empty
+    - `Space` -> *O(n)*: heap space
+6. [Table of Content](#table-of-content)
