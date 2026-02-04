@@ -9,6 +9,8 @@
     - [Approach](#approach-1)
   - [**Leetcode 3637** \[Trionic Array I\] 4⭐](#leetcode-3637-trionic-array-i-4)
     - [Approach](#approach-2)
+  - [**Leetcode 3640** \[Trionic Array II\] 1⭐](#leetcode-3640-trionic-array-ii-1)
+    - [Approach](#approach-3)
 
 ## **Leetcode 3010** [ Divide an Array Into Subarrays With Minimum Cost I ] 4⭐
 - **Date** -> 01/02/2026
@@ -69,3 +71,16 @@
     - `Time` -> *O(n)*: to find two break points + *O(n)*: to re verify the parts -> *O(n)*
     - `Space` -> *O(1)*
 7. [Table of Content](#table-of-content)
+
+## **Leetcode 3640** [Trionic Array II] 1⭐
+- **Date** -> 04/02/2026
+- **Link** -> https://leetcode.com/problems/trionic-array-ii/description/
+- **Difficulty** -> HARD
+### Approach
+1. The brute force approach will be the silding window for window 4 -> n, for every window size we will check if the window is trionic or not and update the anser
+2. The above solution has time complexity -> *O(n<sup>3</sup>)*, gives tle after nearly 700 tc
+3. For optimal approach refer the video -> [Intution/Approach](https://www.youtube.com/watch?v=ecOjxZ51r1I);
+4. Complexity:
+    - `Time` -> *O(n)*: for traersing throgh each element
+    - `Space` -> *O(1)*
+5. [Table of Content](#table-of-content)
