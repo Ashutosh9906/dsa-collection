@@ -7,6 +7,10 @@
     - [Approach](#approach)
   - [2. Fractional Knapsack 3⭐](#2-fractional-knapsack-3)
     - [Approach](#approach-1)
+  - [3. Minimum number of coins 4⭐](#3-minimum-number-of-coins-4)
+    - [Approach](#approach-2)
+  - [4. Lemonade change 4⭐](#4-lemonade-change-4)
+    - [Approach](#approach-3)
 
 ## 1. Assign Cookies 4⭐
 - **Link** -> https://leetcode.com/problems/assign-cookies/description/
@@ -33,3 +37,26 @@
     - `Time` -> *O(nlogn)*: to push all the elements into the heap + *O(nlogn)*: to pop and fullfill the capacity
     - `Space` -> *O(n)*: heap space
 7. [Table of Content](#table-of-content)
+
+## 3. Minimum number of coins 4⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/-minimum-number-of-coins4426/1
+- **Difficulty** -> HARD
+### Approach
+1. We want the minium number of change to be used to generate to get the sum of given number
+2. We have notes from {10, 5, 2, 1}, we will divide the n by 10 store it quotient into the answer and n = n%10 we will perfrom this operation with all the changes we have
+3. Complexity:
+    - `Time` -> *O(1)*
+    - `Space` -> *O(1)*
+4. [Table of Content](#table-of-content)
+
+## 4. Lemonade change 4⭐
+- **Link** -> https://leetcode.com/problems/lemonade-change/description/
+- **Difficulty** -> EASY
+### Approach
+1. We are running an lemonade shop and we have to mange all the bills and return true if we are able to attain the customer by returning proper change else false
+2. We will keep track on number of bills of 5$ and 10$, if the given bill is 5$ just increment the 5$ counter, if it is an 10$ counter increment the 10$ counter and decrement the 5$ counter by 1, if the it is 20$ we have two options give 3 * 5$ or give 10$ + 5$ based on which we will do the inncrement and decrement
+3. If for any of the above exchange we don't have enough bills straight away return false
+4. Complexity:
+    - `Time` -> *O(n)*: to exchange bills
+    - `Space` -> *O(1)*
+5. [Table of Content](#table-of-content)
