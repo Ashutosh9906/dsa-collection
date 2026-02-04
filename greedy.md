@@ -15,6 +15,10 @@
     - [Approach](#approach-4)
   - [6. N meeting in one room 3⭐](#6-n-meeting-in-one-room-3)
     - [Approach](#approach-5)
+  - [7. Jump game I 4⭐](#7-jump-game-i-4)
+    - [Approach](#approach-6)
+  - [8. Jump game II 3⭐](#8-jump-game-ii-3)
+    - [Approach](#approach-7)
 
 ## 1. Assign Cookies 4⭐
 - **Link** -> https://leetcode.com/problems/assign-cookies/description/
@@ -92,3 +96,31 @@
     - `Time` -> *O(nlogn)*: to push the end ans start timing of the meeting + *O(n)*: to iterate until heap is empty
     - `Space` -> *O(n)*: heap space
 6. [Table of Content](#table-of-content)
+
+## 7. Jump game I 4⭐
+- **Link** -> https://leetcode.com/problems/jump-game/description/
+- **Difficulty** -> EASY
+### Approach
+1. We have check whether the element i am standing at i touched one by any of the poast gone element
+2. If all the jump are resulting ending to the 0 then the answer in false, even one of the element goes to the next element then 0 then reaching end is possible
+3. We will maintain an maxReach variable to store the maximum far away we can go by using all the jump we can use
+4. If at any moment maxReach < i then return false, either way return true;
+5. Comlexity:
+    - `Time` -> *O(n)*: to iterate through array
+    - `Space` -> *O(1)*
+6. [Table of Content](#table-of-content)
+
+## 8. Jump game II 3⭐
+- **Link** -> https://leetcode.com/problems/jump-game-ii/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We want the minimum numbers of jumps to be made to reach the element at n-1
+2. We stand at the very beginning we will find out the max range unitl which we can reach using the current number of change, and store it as one jump
+3. Futher we will find the the max range the that we can touch using all the elements int he current range we use two pointer
+4. We use low and high initialized to '0' we run an while until high < n-1
+5. From low -> high in this range we will find out the next range we can jump using an for loop farhtest = max(farthest, arr[i]+i) 
+6. Furhter low = high+1 ad high = farthest, the moment high reaches the last element stop return the cnt
+7. Complexity:
+    - `Time` -> *O(n)*
+    - `Space` -> *o(1)*
+8. [Table of Content](#table-of-content)
