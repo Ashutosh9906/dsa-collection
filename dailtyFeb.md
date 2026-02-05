@@ -11,6 +11,8 @@
     - [Approach](#approach-2)
   - [**Leetcode 3640** \[Trionic Array II\] 1⭐](#leetcode-3640-trionic-array-ii-1)
     - [Approach](#approach-3)
+  - [**Leetcode 3379** \[Transformed Arrat\] 4⭐](#leetcode-3379-transformed-arrat-4)
+    - [Approach](#approach-4)
 
 ## **Leetcode 3010** [ Divide an Array Into Subarrays With Minimum Cost I ] 4⭐
 - **Date** -> 01/02/2026
@@ -84,3 +86,15 @@
     - `Time` -> *O(n)*: for traersing throgh each element
     - `Space` -> *O(1)*
 5. [Table of Content](#table-of-content)
+
+## **Leetcode 3379** [Transformed Arrat] 4⭐
+- **Date** -> 05/02/2026
+- **Link** -> https://leetcode.com/problems/transformed-array/description/
+- **Difficulty** -> EASY
+### Approach
+1. We know where the pos of the answer will be arr[i]+i just in cycle we have to maintain we will simply do the modulus
+2. But for negative numbers we have to go backwards so the modulo will give the wrong answer so we take double modulo `((arr[i]+i) % n + n) % n`
+3. Complexity:
+    - `Time` -> *O(n)*
+    - `Space` -> *O(1)*
+4. [Table of Content](#table-of-content)
