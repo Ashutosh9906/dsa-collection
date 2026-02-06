@@ -13,6 +13,8 @@
     - [Approach](#approach-3)
   - [**Leetcode 3379** \[Transformed Arrat\] 4⭐](#leetcode-3379-transformed-arrat-4)
     - [Approach](#approach-4)
+  - [**3634** \[Minimum Removals to Balance Array\] 4⭐](#3634-minimum-removals-to-balance-array-4)
+    - [Approach](#approach-5)
 
 ## **Leetcode 3010** [ Divide an Array Into Subarrays With Minimum Cost I ] 4⭐
 - **Date** -> 01/02/2026
@@ -98,3 +100,18 @@
     - `Time` -> *O(n)*
     - `Space` -> *O(1)*
 4. [Table of Content](#table-of-content)
+
+
+## **3634** [Minimum Removals to Balance Array] 4⭐
+- **Date** -> 06/02/2026
+- **Link** -> https://leetcode.com/problems/minimum-removals-to-balance-array/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. WE have remove either the min value and get the next min value to accept the current max value or remove the max value to accept the min value
+2. We will use the sliding window and sort, low and high pointer will be at location 0
+3. We will increment the high ponter until we reach first element to defy the contions than store the ans and move the low further
+4. So the min in altered then again move the high until high reaches the last element calculate the ans using `n-1+low-high`
+5. Complexity:
+    - `Time` -> *O(nlogn)*: to sort the given array + *O(n)*: to traverse through the array by sliding the window
+    - `Space` -> *O(1)*
+6. [Table of Content](#table-of-content)
