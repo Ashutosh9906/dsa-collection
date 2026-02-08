@@ -15,6 +15,10 @@
     - [Approach](#approach-4)
   - [**3634** \[Minimum Removals to Balance Array\] 4⭐](#3634-minimum-removals-to-balance-array-4)
     - [Approach](#approach-5)
+  - [**1653** \[Minimum Deletions to Make String Balanced\] 3⭐](#1653-minimum-deletions-to-make-string-balanced-3)
+    - [Approach](#approach-6)
+  - [**110** \[Balanced binary tree\] 4⭐](#110-balanced-binary-tree-4)
+    - [Approach](#approach-7)
 
 ## **Leetcode 3010** [ Divide an Array Into Subarrays With Minimum Cost I ] 4⭐
 - **Date** -> 01/02/2026
@@ -114,4 +118,32 @@
 5. Complexity:
     - `Time` -> *O(nlogn)*: to sort the given array + *O(n)*: to traverse through the array by sliding the window
     - `Space` -> *O(1)*
+6. [Table of Content](#table-of-content)
+
+## **1653** [Minimum Deletions to Make String Balanced] 3⭐
+- **Date** -> 07/02/2026
+- **Link** -> https://leetcode.com/problems/minimum-deletions-to-make-string-balanced/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We wnat to perfrom minimum operation means we have make the string length maximum acceptable where there is no "aba" or "bab"
+2. We have to perfrom the optimal deletion not just 'a' or just 'b', we decide is on the basis of the count of 'a' and 'b'
+3. At the end we want as string like "....aaabbb...." is such pattern, we have decide an interaval such that be deliting all the b from the right and all the a from the right is minumum
+4. We will store the number of a's and iterate through loop the at each iteration we will store the (b on right) + (a on the left) and take the minimum that will be the required answer
+5. Complexity:
+    - `TIme` -> *O(n)*: for getting the count of a and the main loop throgugh the array
+    - `Space` -> *O(1)*
+6. [Table of Content](#table-of-content)
+
+## **110** [Balanced binary tree] 4⭐
+- **Date** -> 08/02/2026
+- **Link** -> https://leetcode.com/problems/balanced-binary-tree/description/
+- **Difficulty** -> EASY
+### Approach
+1. If there are any siblings whose difference in height is more than 1 than return false or return true
+2. We will write an funnction to the height of the node as an helper function
+3. In the main function if the node is nullptr then return 0, we will get the height of both the siblings left and right if there difference is more than 1 return false;
+4. We make further call and return them as part of recursion `return isBalanced(root->left) && isBalanced(root->right)`
+5. Complexity:
+    - `Time` -> *O(n<sup>2</sup>)*: n for getting the height and n for iterting through whole tree
+    - `Space` -> *O(n)*: recursive stack space
 6. [Table of Content](#table-of-content)
