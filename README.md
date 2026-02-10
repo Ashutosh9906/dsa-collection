@@ -15,107 +15,24 @@ This repository is dedicated to storing all my **Data Structures and Algorithms*
 ```mermaid
 flowchart LR
 
-%% ======================
-%% CLIENT LAYER
-%% ======================
 User[User]
 WebApp[Web Application]
 
 User --> WebApp
 
-%% ======================
-%% AUTHENTICATION
-%% ======================
-AuthService[Authentication Service]
+Auth[Authentication Service]
+Backend[Backend Services]
+Events[Event Service]
 
-WebApp -->|Login or Register| AuthService
+WebApp -->|Register or Login| Auth
+Auth -->|Google or OTP| ExternalAuth[External Auth Services]
 
-GoogleOAuth[Google OAuth]
-OTPService[OTP Service]
+WebApp -->|User Data and Requests| Backend
+Backend --> UserDB[(User Database)]
+Backend --> ClubDB[(Club Database)]
 
-AuthService -->|OAuth Authentication| GoogleOAuth
-AuthService -->|Send OTP| OTPService
-OTPService -->|Verify OTP| AuthService
+WebApp -->|View or Host Events| Events
+Events --> EventDB[(Event Database)]
 
-%% ======================
-%% USER MANAGEMENT
-%% ======================
-UserService[User Management Service]
-
-AuthService -->|Auth Success| UserService
-WebApp -->|Submit User Details| UserService
-
-%% ======================
-%% CLUB AND APPROVAL
-%% ======================
-ClubService[Club and Approval Service]
-
-UserService -->|Role is Club Member| ClubService
-
-%% ======================
-%% EVENT MANAGEMENT
-%% ======================
-EventService[Event Management Service]
-
-WebApp -->|Fetch Events| EventService
-WebApp -->|Create Event| EventService
-
-%% ======================
-%% DATABASES
-%% ======================
-UserDB[(User Database)]
-ClubDB[(Club Database)]
-RequestDB[(Membership Request Database)]
-EventDB[(Event Database)]
-
-UserService -->|Create or Update User| UserDB
-AuthService -->|Validate Login| UserDB
-
-ClubService -->|Store Club Data| ClubDB
-ClubService -->|Create Join Request| RequestDB
-ClubService -->|Approve or Reject Request| RequestDB
-ClubService -->|Update User Role| UserDB
-
-EventService -->|Store Event| EventDB
-EventService -->|Read Events| EventDB
-
-%% ======================
-%% ROLE BASED USERS
-%% ======================
-Student[Student]
-ClubMember[Club Member]
-ClubHead[Club Head]
-Admin[Admin]
-
-User --> Student
-User --> ClubMember
-User --> ClubHead
-User --> Admin
-
-%% ======================
-%% STUDENT FLOW
-%% ======================
-Student -->|View Events| WebApp
-WebApp -->|Get Event Details| EventService
-Student -->|Register via Link| ExternalApp[External Registration Application]
-
-%% ======================
-%% CLUB MEMBER FLOW
-%% ======================
-ClubMember -->|Request Club Join| WebApp
-WebApp --> ClubService
-ClubMember -->|Host Event| WebApp
-
-%% ======================
-%% CLUB HEAD FLOW
-%% ======================
-ClubHead -->|Approve Members| WebApp
-WebApp --> ClubService
-
-%% ======================
-%% ADMIN FLOW
-%% ======================
-Admin -->|Verify Club Head| WebApp
-WebApp --> ClubService
-ClubService -->|Verify Club| ClubDB
+WebApp -->|Event Registration| ExternalApp[External Registration App]
 ```
