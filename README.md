@@ -18,8 +18,8 @@ flowchart LR
 %% ======================
 %% CLIENT LAYER
 %% ======================
-User[User<br/>(Student / Club Member / Club Head / Admin)]
-WebApp[Web Application<br/>(Browser / UI)]
+User[User]
+WebApp[Web Application]
 
 User --> WebApp
 
@@ -28,12 +28,12 @@ User --> WebApp
 %% ======================
 AuthService[Authentication Service]
 
-WebApp -->|Login / Register| AuthService
+WebApp -->|Login or Register| AuthService
 
 GoogleOAuth[Google OAuth]
 OTPService[OTP Service]
 
-AuthService -->|OAuth| GoogleOAuth
+AuthService -->|OAuth Authentication| GoogleOAuth
 AuthService -->|Send OTP| OTPService
 OTPService -->|Verify OTP| AuthService
 
@@ -43,14 +43,14 @@ OTPService -->|Verify OTP| AuthService
 UserService[User Management Service]
 
 AuthService -->|Auth Success| UserService
-WebApp -->|Additional Info<br/>(Name, PRN, Branch,<br/>Year, Role, Password)| UserService
+WebApp -->|Submit User Details| UserService
 
 %% ======================
-%% CLUB & APPROVAL
+%% CLUB AND APPROVAL
 %% ======================
-ClubService[Club & Approval Service]
+ClubService[Club and Approval Service]
 
-UserService -->|If Role = Club Member| ClubService
+UserService -->|Role is Club Member| ClubService
 
 %% ======================
 %% EVENT MANAGEMENT
@@ -65,25 +65,24 @@ WebApp -->|Create Event| EventService
 %% ======================
 UserDB[(User Database)]
 ClubDB[(Club Database)]
-RequestDB[(Membership Request DB)]
+RequestDB[(Membership Request Database)]
 EventDB[(Event Database)]
 
-UserService -->|Create / Update User| UserDB
+UserService -->|Create or Update User| UserDB
 AuthService -->|Validate Login| UserDB
 
 ClubService -->|Store Club Data| ClubDB
 ClubService -->|Create Join Request| RequestDB
-ClubService -->|Approve / Reject Request| RequestDB
+ClubService -->|Approve or Reject Request| RequestDB
 ClubService -->|Update User Role| UserDB
 
 EventService -->|Store Event| EventDB
 EventService -->|Read Events| EventDB
 
 %% ======================
-%% ROLE-BASED FLOWS
+%% ROLE BASED USERS
 %% ======================
-
-Student[Student User]
+Student[Student]
 ClubMember[Club Member]
 ClubHead[Club Head]
 Admin[Admin]
@@ -93,21 +92,29 @@ User --> ClubMember
 User --> ClubHead
 User --> Admin
 
-%% Student Flow
+%% ======================
+%% STUDENT FLOW
+%% ======================
 Student -->|View Events| WebApp
-WebApp -->|Event Details| EventService
-Student -->|Register via Link| ExternalReg[External Registration App]
+WebApp -->|Get Event Details| EventService
+Student -->|Register via Link| ExternalApp[External Registration Application]
 
-%% Club Member Flow
+%% ======================
+%% CLUB MEMBER FLOW
+%% ======================
 ClubMember -->|Request Club Join| WebApp
 WebApp --> ClubService
 ClubMember -->|Host Event| WebApp
 
-%% Club Head Flow
+%% ======================
+%% CLUB HEAD FLOW
+%% ======================
 ClubHead -->|Approve Members| WebApp
 WebApp --> ClubService
 
-%% Admin Flow
+%% ======================
+%% ADMIN FLOW
+%% ======================
 Admin -->|Verify Club Head| WebApp
 WebApp --> ClubService
 ClubService -->|Verify Club| ClubDB
