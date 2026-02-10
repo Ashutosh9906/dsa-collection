@@ -23,6 +23,7 @@ User --> WebApp
 Auth[Authentication Service]
 Backend[Backend Services]
 Events[Event Service]
+GetEvents[Get All Club Events]
 
 WebApp -->|Register or Login| Auth
 Auth -->|Google or OTP| ExternalAuth[External Auth Services]
@@ -31,7 +32,8 @@ WebApp -->|User Data and Requests| Backend
 Backend --> UserDB[(User Database)]
 Backend --> ClubDB[(Club Database)]
 
-WebApp -->|View or Host Events| Events
+WebApp -->|Request Events| GetEvents
+GetEvents --> Events
 Events --> EventDB[(Event Database)]
 
 WebApp -->|Event Registration| ExternalApp[External Registration App]
