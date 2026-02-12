@@ -19,6 +19,10 @@
     - [Approach](#approach-6)
   - [8. Jump game II 3⭐](#8-jump-game-ii-3)
     - [Approach](#approach-7)
+  - [9. Minimum Platform 3⭐](#9-minimum-platform-3)
+    - [Approach](#approach-8)
+  - [10. Candy 3⭐](#10-candy-3)
+    - [Approach](#approach-9)
 
 ## 1. Assign Cookies 4⭐
 - **Link** -> https://leetcode.com/problems/assign-cookies/description/
@@ -124,3 +128,30 @@
     - `Time` -> *O(n)*
     - `Space` -> *o(1)*
 8. [Table of Content](#table-of-content)
+
+## 9. Minimum Platform 3⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. What i thought was like sort the pair of the train arrival, dep using heap and use another heap to calculate first will check if there are any train having dep < arrival of current then pop inside an while loop and at the end push the curr train details in heap and ans will be the size of the heap
+2. The `OPTIMAL SOLUTION` is like we want like an log book we can think of we will sort both the arr and dep arr individually 
+    - `If arr[i]<=dep[j]` means currently an train have arrived platform++ and move i pointer i++
+    - `ELSE ` means the train is departing then platform-- and move j pointer j++
+3. If the we get contnous three arrival then we need three platform so the ans will max(ans, platform) at the end of each iteration
+4. Complexity:
+    - `Time` -> *O(2nlogn)*: to sort both the arrya + *O(2n)*: to traverse through both the array and get the ans
+    - `Space` -> *O(1)*
+5. [Table of Content](#table-of-content)
+
+## 10. Candy 3⭐
+- **Link** -> https://leetcode.com/problems/candy/description/
+- **Difficulty** -> HARD
+### Approach
+1. We want to give the extra candy based on the neighbours of the current whoever let me gets the max candy i will take it
+2. Generally i thought of like i will look one pos ahead and behind of current and decide but it will create an uncertain answer as we don't know neighbours ahead of me
+3. So we iterate throgh the loop twice from left and right and to sum up the answer we will take max(left[i], right[i])
+4. Eery time the curr wants one candy more the respective neighbour
+5. Complexity:
+    - `Time` -> *O(3n)*: 2 for precomputation of left ans right and one for summation of answer
+    - `Space` -> *O(1)*
+6. [Table of Content](#table-of-content)
