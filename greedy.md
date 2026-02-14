@@ -23,6 +23,12 @@
     - [Approach](#approach-8)
   - [10. Candy 3⭐](#10-candy-3)
     - [Approach](#approach-9)
+  - [11. Shortest Job First 4⭐](#11-shortest-job-first-4)
+    - [Approach](#approach-10)
+  - [12. Insert Interval 3.5⭐](#12-insert-interval-35)
+    - [Approach](#approach-11)
+  - [13. Merge Intervals 4⭐](#13-merge-intervals-4)
+    - [Approach](#approach-12)
 
 ## 1. Assign Cookies 4⭐
 - **Link** -> https://leetcode.com/problems/assign-cookies/description/
@@ -155,3 +161,40 @@
     - `Time` -> *O(3n)*: 2 for precomputation of left ans right and one for summation of answer
     - `Space` -> *O(1)*
 6. [Table of Content](#table-of-content)
+
+## 11. Shortest Job First 4⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/shortest-job-first/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. The question asks for the average waiting time for executing all the task where we perform smallest task first
+![Example](images/greedy11.png)
+2. So we have to just maintain 2 counter one for ans and one for waiting time but before anything we have first sort the given array
+3. Add the waiting time to ans and add arr[i] to waiting time, return ans/n
+4. Complexity:
+    - `Time` -> *O(nlogn)*: to sort the given array + *O(n)*: to iterate through the array
+    - `Space` -> *O(1)*
+5. [Table of Content](#table-of-content)
+
+## 12. Insert Interval 3.5⭐
+- **Link** -> https://leetcode.com/problems/insert-interval/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We want to add the given newInteraval into the interval and manage the over lapping intervals
+2. At first we will add all the elements from the start which are not over lapping `arr[i][1] < newInt[0]`
+3. Then curr elements overlap the newInt then update the newInt until `arr[i][0] < newInt[1]` using min for start and max for end
+4. We have resolved all the overlapping push the newInt into the asnwer arrat and push all the remaining array elements into the answer
+5. Complexity:
+    - `Time` -> *O(n)*: traverse through the array
+    - `Space` -> *O(n)*: to store the asnwer
+6. [Table of Content](#table-of-content)
+
+## 13. Merge Intervals 4⭐
+- **Link** -> https://leetcode.com/problems/merge-intervals/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. Same as the above question with an small change it there exist any overlapping we have to resolve it
+2. We will the second stage of the above question to solve this question
+3. Complexity:
+    - `Time` -> *O(n)*: to traverse through each element
+    - `Space` -> *O(n)*: to store the answer
+4. [Table of Content](#table-of-content)
