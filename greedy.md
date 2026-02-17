@@ -29,6 +29,10 @@
     - [Approach](#approach-11)
   - [13. Merge Intervals 4⭐](#13-merge-intervals-4)
     - [Approach](#approach-12)
+  - [14. Non-overlapping Intervals 3⭐](#14-non-overlapping-intervals-3)
+    - [Approach](#approach-13)
+  - [15. Job sequencing Problem 3.5⭐](#15-job-sequencing-problem-35)
+    - [Approach](#approach-14)
 
 ## 1. Assign Cookies 4⭐
 - **Link** -> https://leetcode.com/problems/assign-cookies/description/
@@ -197,4 +201,25 @@
 3. Complexity:
     - `Time` -> *O(n)*: to traverse through each element
     - `Space` -> *O(n)*: to store the answer
+4. [Table of Content](#table-of-content)
+
+## 14. Non-overlapping Intervals 3⭐
+- **Link** -> https://leetcode.com/problems/non-overlapping-intervals/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. refer [6. N metting in one room](#6-n-meeting-in-one-room-3) problem this is just same as the mentioned question
+2. Complexity:
+    - `Time` -> *O(nlon)*: to sort the array and + *O(n)*: to traverse through each element
+    - `Space` -> *O(1)*
+3. [Table of Content](#table-of-content)
+
+## 15. Job sequencing Problem 3.5⭐
+- **Link** -> https://www.geeksforgeeks.org/problems/job-sequencing-problem-1587115620/1
+- **Difficulty** -> MEDIUM
+### Approach
+1. We will sort arr by the deadline and initialize an hashmap with the largest deadline to -1
+2. If the current deadline is -1 then add the profit increment the counter insert in hashmap
+3. Complexity:
+    - `Time` -> *O(nlogn)*: for sorting the elemetns + *O(n)*: to get the max deadline + *O(n)*: to get the required answer
+    - `Space` -> *O(D)*: for hashmap + *O(n)*: to convert the two array in one
 4. [Table of Content](#table-of-content)
