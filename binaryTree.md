@@ -15,6 +15,13 @@
     - [Iterative Approach II 2⭐](#iterative-approach-ii-2)
   - [4. Level order Traversal / Level order traversal in spiral form `[BFS]` 3⭐](#4-level-order-traversal--level-order-traversal-in-spiral-form-bfs-3)
     - [Approach](#approach)
+  - [5. Maximum Depth in BT 4⭐](#5-maximum-depth-in-bt-4)
+    - [Approach](#approach-1)
+  - [6. Check for balanced binary tree 3.5⭐](#6-check-for-balanced-binary-tree-35)
+    - [Approach - I](#approach---i)
+    - [Approach - II](#approach---ii)
+  - [7. Diameter of Binary Tree](#7-diameter-of-binary-tree)
+    - [Approach](#approach-2)
 
 ## 1. Preorder Traversal of Binary Tree `[DFS]` 4⭐
 - **Link** -> https://leetcode.com/problems/binary-tree-preorder-traversal/description/
@@ -94,3 +101,45 @@
     - `Space` -> *O(n)*: queue space to store the tree elements
 7. [To Table Of Content](#table-of-content)
 
+## 5. Maximum Depth in BT 4⭐
+- **Link** -> https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We can write an recursive function with the base case like if the node is NULL then return 0
+2. We will call the left and right sub-tree of the root and every time while returning we will return (left, right) + 1
+3. The return type of the funtion will be int
+4. Complexity:
+    - `Time` -> *O(n)*: to touch each node once
+    - `Space` -> *O(n)*: recursive stack space
+5. [To Table Of Content](#table-of-content)
+ 
+## 6. Check for balanced binary tree 3.5⭐
+- **Link** -> https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
+- **Difficulty** -> MEDIUM
+### Approach - I
+1. We can define an height function which will return the height of the node
+2. If the abs difference between the left and right is more then 1 then return false else return true
+3. Complexity:
+    - `Time` -> *O(n X n)*: n for traversal in the tree and n for finding the height
+    - `Space` -> *O(n X n)*: recursive stack space
+### Approach - II
+1. We can optimize above solution by making small changes in the height function 
+2. In the height function if the found and difference is greater then 1 then further we will return -1
+3. And if any of the left or right get the height -1 return -1 further as well
+4. So while calculating the height of the root node if the at any moment we came across the un balanced node it will return the -1
+5. Complexity:
+    - `Time` -> *O(n)*: to traverse through each node 
+    - `Space` -> *O(n)*: recursive stack space
+6. [To Table Of Content](#table-of-content)
+
+## 7. Diameter of Binary Tree
+- **Link** -> https://leetcode.com/problems/diameter-of-binary-tree/description/
+- **Difficulty** -> EASY
+### Approach
+1. It can be done same as the Approach-I of above question in time complexity of **O(n x n)**
+2. To optimize it we will use the same code as we used for finding the height just with small additive lines
+3. We will maintain an variable maxi which will store max((left+right), maxi), so we will get the diameter
+4. Complexity:
+    - `Time` -> *O(n)*: to traverse throguth each element
+    - `Space` -> *O(n)*: recursive stack space
+5. [To Table Of Content](#table-of-content)
