@@ -22,6 +22,12 @@
     - [Approach - II](#approach---ii)
   - [7. Diameter of Binary Tree](#7-diameter-of-binary-tree)
     - [Approach](#approach-2)
+  - [8. Maximum path sum](#8-maximum-path-sum)
+    - [Approach](#approach-3)
+  - [9. Same Tree](#9-same-tree)
+    - [Approach](#approach-4)
+  - [10. Zig Zag or Spiral Traversal](#10-zig-zag-or-spiral-traversal)
+    - [Approach](#approach-5)
 
 ## 1. Preorder Traversal of Binary Tree `[DFS]` 4⭐
 - **Link** -> https://leetcode.com/problems/binary-tree-preorder-traversal/description/
@@ -143,3 +149,42 @@
     - `Time` -> *O(n)*: to traverse throguth each element
     - `Space` -> *O(n)*: recursive stack space
 5. [To Table Of Content](#table-of-content)
+
+## 8. Maximum path sum
+- **Link** -> https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. The absolute brute force approach will be trying out all the combination of the node leading to time comlexity of *O(n<sup>2</sup>)*
+2. We will use the same code as we used for maxHeight with an slight change 
+3. I think of some test case like below
+    1. if the left in greater than ans then store the ans and return left
+    2. if the right is greater then ans then store the ans and return the right
+    3. if the node->val + left + right is greater then ans then return the max(node->val + left, node->val + right), like we we considered that umberalla that may be the answer all the node above may be negative
+    4. if the node->val itself is greatest then return only the node->val
+4. Complexity:
+    - `Time` -> *O(n)*: for traversing throuht each element
+    - `Space` -> *O(n)*: recursive stack space
+5. [To Table Of Content](#table-of-content)
+
+## 9. Same Tree
+- **Link** -> https://leetcode.com/problems/same-tree/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. Simply we do an preOrder traversal simultaneously for both the node if at any moement they differ just return false
+2. Complexity:
+    - `Time` -> *O(n)*: for preOrder traversal
+    - `Space` -> *O(n)*: recursive stack space
+3. [To Table Of Content](#table-of-content)
+
+## 10. Zig Zag or Spiral Traversal
+- **Link** -> https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/
+- **Difficulty** -> MEDIUM
+### Approach
+1. We can approach the problem step by step like first how to differenciate between the level, then how to store the answer
+2. We will iterate the loop until the queue is empty at the very beginning we will push the root node
+3. We will differentiate between the level by specifing the size of the queue before any new addition to the queue
+4. We will maintain an falg ex 0 for left -> right, 1 for right -> left
+5. Complexity:
+    - `Time` -> *O(n)*: for iterate through the tree
+    - `Space` -> *O(n)*: queue space and + *O(n)*: to store the answer
+6. [To Table Of Content](#table-of-content)
